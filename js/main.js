@@ -1,113 +1,85 @@
-/* ══════════════════════════════════════════
-   DJ FRANZ — MAIN JAVASCRIPT
-══════════════════════════════════════════ */
+/* DJ FRANZ — main.js v4 */
 
-// ── PRELOADER ────────────────────────────
+// PRELOADER
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('pre').classList.add('out');
-  }, 2100);
+  setTimeout(() => document.getElementById('pre').classList.add('out'), 2000);
 });
 
-// ── CUSTOM CURSOR ────────────────────────
+// CURSOR
 const cr = document.getElementById('cr');
 document.addEventListener('mousemove', e => {
   cr.style.left = e.clientX + 'px';
   cr.style.top  = e.clientY + 'px';
 });
-document.querySelectorAll('a, button, .svc-row, .ev-tr, .gi, .t-card').forEach(el => {
+document.querySelectorAll('a,button,.svc-card,.ev-item,.gi,.t-card').forEach(el => {
   el.addEventListener('mouseenter', () => cr.classList.add('xl'));
   el.addEventListener('mouseleave', () => cr.classList.remove('xl'));
 });
 
-// ── NAV STICKY ───────────────────────────
+// NAV
 const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('pinned', window.scrollY > 80);
+window.addEventListener('scroll', () => nav.classList.toggle('pinned', scrollY > 80));
+
+// HAMBURGER
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobMenu').classList.toggle('open');
+});
+document.querySelectorAll('.mob-menu a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('mobMenu').classList.remove('open'));
 });
 
-// ── MOBILE MENU ──────────────────────────
-const hamburger  = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-mobileMenu.querySelectorAll('.mm-link').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
-
-// ── MARQUEE BAND ─────────────────────────
-const bandItems = [
-  'BODAS', 'QUINCEAÑERAS', 'DISCOTECAS', 'EVENTOS PRIVADOS',
-  'CONCIERTOS', 'POOL PARTIES', 'USA TOUR', 'FLASH MEMORY 64GB',
-  'AFTER PARTIES', 'CORPORATIVOS'
-];
+// BAND
 const bandEl = document.getElementById('band');
-const bandAll = [...bandItems, ...bandItems, ...bandItems];
-bandEl.innerHTML = bandAll
-  .map(i => `<span class="band-item">${i}<span class="band-sep"></span></span>`)
-  .join('');
+const bandItems = ['BODAS','QUINCEAÑERAS','DISCOTECAS','EVENTOS PRIVADOS','CONCIERTOS','POOL PARTIES','USA TOUR','FLASH MEMORY 64GB','AFTER PARTIES','CORPORATIVOS'];
+const bandAll = [...bandItems,...bandItems,...bandItems];
+bandEl.innerHTML = bandAll.map(i => `<span class="band-item">${i}<span class="band-sep"></span></span>`).join('');
 
-// ── ARTISTS TICKER ───────────────────────
+// ARTISTS
 const artists = [
-  'Maluma', 'J Balvin', 'Enrique Iglesias', 'Nicky Jam', 'Carlos Vives',
-  'Gilberto Santa Rosa', 'Silvestre Dangond', 'Jessi Uribe', 'Arcángel',
-  'Tego Calderón', 'Ivy Queen', 'Gente de Zona', 'Sin Bandera', 'Nacho',
-  'Trébol Clan', 'Kevin Roldán', 'Yeison Jiménez', 'Paola Jara',
-  'Ana del Castillo', 'Víctor Manuelle', 'Jerry Rivera', 'Alberto Barros',
-  'WaldoKinc', 'Paolo Plaza', 'Jorge Celedón', 'Habana de Primera',
-  'Luis Alfonso', 'Alex Manga', 'Herbert Vargas', 'Tego Calderón'
+  'Maluma','J Balvin','Enrique Iglesias','Nicky Jam','Carlos Vives',
+  'Gilberto Santa Rosa','Silvestre','Jessi Uribe','Arcángel','Tego Calderón',
+  'Ivy Queen','Gente de Zona','Sin Bandera','Nacho','Trébol Clan',
+  'Kevin Roldán','Yeison Jiménez','Paola Jara','Ana del Castillo',
+  'Víctor Manuelle','Jerry Rivera','Alberto Barros','WaldoKinc','Paolo Plaza',
+  'Jorge Celedón','Habana de Primera','Maluma','J Balvin'
 ];
-
-function buildArtistRow(id, items) {
-  const el  = document.getElementById(id);
+function buildRow(id, items) {
   const all = [...items, ...items];
-  el.innerHTML = all
-    .map(a => `<span class="art-nm">${a}<span class="art-dot"> · </span></span>`)
-    .join('');
+  document.getElementById(id).innerHTML = all.map(a =>
+    `<span class="art-nm">${a}<span class="art-dot"> · </span></span>`
+  ).join('');
 }
-buildArtistRow('ar1', artists.slice(0, 16));
-buildArtistRow('ar2', artists.slice(12));
+buildRow('ar1', artists.slice(0, 16));
+buildRow('ar2', artists.slice(10));
 
-// ── SCROLL REVEAL ────────────────────────
-const revealObs = new IntersectionObserver(entries => {
+// REVEAL
+const revObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      revealObs.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); }
   });
 }, { threshold: 0.1 });
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => revObs.observe(el));
 
-document.querySelectorAll('.rv, .rvl, .rvr').forEach(el => revealObs.observe(el));
-
-// ── STAT COUNTERS ────────────────────────
+// HERO STAT COUNTERS
+const heroStats = document.querySelectorAll('.hs-n[data-target]');
 const statObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add('on');
-
-    const numEl  = e.target.querySelector('.sn');
-    const target = parseInt(e.target.querySelector('.s-lbl').dataset.target);
-
-    if (numEl && !numEl.dataset.done) {
-      numEl.dataset.done = '1';
-      let v = 0;
-      const step = target / 55;
-      const t = setInterval(() => {
-        v = Math.min(v + step, target);
-        numEl.textContent = Math.floor(v);
-        if (v >= target) clearInterval(t);
-      }, 18);
-    }
+    if (!e.isIntersecting || e.target.dataset.done) return;
+    e.target.dataset.done = '1';
+    const target = parseInt(e.target.dataset.target);
+    let v = 0;
+    const step = target / 55;
+    const t = setInterval(() => {
+      v = Math.min(v + step, target);
+      e.target.textContent = Math.floor(v);
+      if (v >= target) clearInterval(t);
+    }, 18);
     statObs.unobserve(e.target);
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.5 });
+heroStats.forEach(el => statObs.observe(el));
 
-document.querySelectorAll('.s-box').forEach(el => statObs.observe(el));
-
-// ── BOOKING FORM ─────────────────────────
+// FORM
 document.getElementById('bkForm').addEventListener('submit', e => {
   e.preventDefault();
   const toast = document.getElementById('toast');
