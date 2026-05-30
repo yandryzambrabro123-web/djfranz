@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ FRANZ — Santo Domingo · Ecuador · Internacional</title>
+<meta name="description" content="DJ Franz — El mejor DJ de Ecuador. Casi 20 años de trayectoria.">
+<meta property="og:title" content="DJ FRANZ — Experiencias musicales de otro nivel">
+<meta property="og:description" content="Casi 20 años de trayectoria. El mejor DJ de Santo Domingo.">
+<meta property="og:url" content="https://djfranz.vercel.app">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@300;400;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & TOKENS ─────────────────── */
+:root{
+  --bg:#060606;--bg2:#0e0e0e;--bg3:#161616;
+  --w:#EFEFEF;--g:#999;--rule:rgba(239,239,239,.07);--muted:rgba(239,239,239,.4);
+  --fh:'Anton',sans-serif;--fb:'Barlow Condensed',sans-serif;--fm:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--w);font-family:var(--fb);overflow-x:hidden;cursor:none}
+img{display:block;max-width:100%}
+a{text-decoration:none;cursor:none}
+
+/* cursor */
+#cr{position:fixed;width:10px;height:10px;background:var(--w);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:transform .08s}
+#cr.xl{transform:translate(-50%,-50%) scale(4)}
+
+/* preloader */
+#pre{position:fixed;inset:0;background:var(--bg);z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s .2s,visibility .8s .2s}
+#pre.out{opacity:0;visibility:hidden}
+.pre-dj{font-family:var(--fh);font-size:clamp(60px,12vw,130px);line-height:.9;letter-spacing:.08em;color:var(--w)}
+.pre-franz{font-family:var(--fh);font-size:clamp(60px,12vw,130px);line-height:.9;letter-spacing:.08em;color:var(--g)}
+.pre-bar{width:160px;height:1px;background:rgba(239,239,239,.1);margin-top:40px;overflow:hidden}
+.pre-fill{height:100%;background:var(--w);animation:pfill 2s ease forwards}
+@keyframes pfill{from{width:0}to{width:100%}}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:22px 52px;display:flex;align-items:center;justify-content:space-between;transition:all .3s;border-bottom:1px solid transparent}
+nav.stuck{padding:14px 52px;background:rgba(6,6,6,.96);border-bottom-color:var(--rule);backdrop-filter:blur(20px)}
+.nav-logo{font-family:var(--fh);font-size:20px;letter-spacing:.16em;color:var(--w);transition:opacity .2s}
+.nav-logo:hover{opacity:.6}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-family:var(--fm);font-size:9px;letter-spacing:.22em;color:var(--muted);text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--w)}
+.hwa{font-size:18px;color:var(--w);opacity:.5;transition:opacity .2s}
+.hwa:hover{opacity:1}
+.hbg{display:none;background:none;border:none;cursor:none;flex-direction:column;gap:5px;padding:4px}
+.hbg span{display:block;width:20px;height:1.5px;background:var(--w)}
+.mob{display:none;position:fixed;inset:0;z-index:800;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.mob.open{display:flex}
+.mob a{font-family:var(--fh);font-size:40px;letter-spacing:.08em;color:var(--w);transition:color .2s}
+.mob a:hover{color:var(--g)}
+
+/* ─── HERO ───────────────────────────── */
+#hero{position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:1;filter:brightness(.55) contrast(1.1)}
+.hero-ov{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,rgba(6,6,6,1) 0%,rgba(6,6,6,.5) 40%,rgba(6,6,6,.1) 100%)}
+.hero-body{position:relative;z-index:3;padding:0 52px 130px}
+.hero-loc{font-family:var(--fm);font-size:9px;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.hero-loc::before{content:'';width:24px;height:1px;background:var(--muted);flex-shrink:0}
+.hero-h1{font-family:var(--fh);letter-spacing:.03em;line-height:.88;margin-bottom:18px}
+.hero-h1 em{display:block;font-style:normal;font-size:clamp(72px,9vw,130px);color:var(--muted)}
+.hero-h1 strong{display:block;font-style:normal;font-size:clamp(100px,16vw,210px);color:var(--w)}
+.hero-sub{font-family:var(--fb);font-size:14px;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-w{font-family:var(--fm);font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:13px 32px;background:var(--w);color:var(--bg);border:1px solid var(--w);transition:opacity .2s,transform .15s;display:inline-block}
+.btn-w:hover{opacity:.85;transform:translateY(-1px)}
+.btn-o{font-family:var(--fm);font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:12px 32px;background:transparent;color:var(--muted);border:1px solid rgba(239,239,239,.2);transition:border-color .2s,color .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-o:hover{border-color:var(--w);color:var(--w)}
+.hero-strip{position:absolute;bottom:0;left:0;right:0;z-index:3;display:flex;background:rgba(6,6,6,.9);backdrop-filter:blur(16px);border-top:1px solid var(--rule)}
+.hst{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:18px 12px}
+.hst-n{font-family:var(--fh);font-size:clamp(24px,3vw,40px);color:var(--w)}
+.hst-p{font-family:var(--fh);font-size:16px;color:var(--g)}
+.hst small{font-family:var(--fm);font-size:8px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.hst-d{width:1px;background:var(--rule);align-self:stretch}
+
+/* marquee */
+.mq{background:var(--w);height:42px;overflow:hidden;display:flex;align-items:center}
+.mq-t{display:flex;white-space:nowrap;animation:mqa 36s linear infinite}
+.mq-i{font-family:var(--fh);font-size:11px;letter-spacing:.26em;color:rgba(6,6,6,.5);padding:0 28px;flex-shrink:0}
+.mq-dot{display:inline-block;width:3px;height:3px;background:rgba(6,6,6,.25);border-radius:50%;margin:0 10px;vertical-align:middle}
+@keyframes mqa{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* sections */
+.eyebrow{font-family:var(--fm);font-size:9px;letter-spacing:.38em;color:var(--g);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--g);flex-shrink:0}
+.sec-h{font-family:var(--fh);font-size:clamp(44px,6vw,80px);line-height:.9;letter-spacing:.04em}
+.sec-h em{color:var(--g);font-style:normal}
+
+/* ─── ABOUT ──────────────────────────── */
+#about{display:grid;grid-template-columns:1fr 1fr;min-height:85vh}
+.about-img{position:relative;overflow:hidden}
+.about-img img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(10%) contrast(1.05)}
+.about-txt{background:var(--bg2);padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
+.about-p{font-size:15px;font-weight:300;line-height:1.8;color:var(--muted);margin-bottom:12px}
+.about-p strong{color:var(--w);font-weight:500}
+.about-btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);margin-top:40px}
+.stat{background:var(--bg2);padding:24px 20px}
+.stat-n{font-family:var(--fh);font-size:clamp(36px,4vw,56px);line-height:1;color:var(--w)}
+.stat-l{font-family:var(--fm);font-size:8.5px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+.about-ticker{grid-column:1/-1;background:var(--bg);border-top:1px solid var(--rule);overflow:hidden;padding:28px 0}
+.at-t{display:flex;white-space:nowrap;animation:mqa 55s linear infinite}
+.at-nm{font-family:var(--fb);font-size:clamp(14px,1.8vw,20px);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(239,239,239,.1);padding:0 22px;cursor:none;transition:color .25s}
+.at-nm:hover{color:var(--muted)}
+.at-dot{color:rgba(239,239,239,.12)}
+
+/* ─── SERVICES ───────────────────────── */
+#services{padding:80px 52px;max-width:1320px;margin:0 auto}
+.svc-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.svc-card{position:relative;height:420px;overflow:hidden;cursor:none}
+.svc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(.55) grayscale(10%);transition:transform .5s ease,filter .4s}
+.svc-card:hover img{transform:scale(1.06);filter:brightness(.7) grayscale(0%)}
+.svc-card::after{content:'';position:absolute;inset:0;border:1px solid rgba(239,239,239,0);transition:border-color .3s;z-index:2;pointer-events:none}
+.svc-card:hover::after{border-color:rgba(239,239,239,.15)}
+.svc-info{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:24px;background:linear-gradient(to top,rgba(6,6,6,.96) 0%,rgba(6,6,6,.4) 55%,transparent 100%)}
+.svc-num{font-family:var(--fm);font-size:9px;letter-spacing:.2em;color:var(--muted);margin-bottom:4px}
+.svc-name{font-family:var(--fh);font-size:clamp(20px,2.2vw,28px);letter-spacing:.06em;color:var(--w);line-height:1;transition:color .2s}
+.svc-card:hover .svc-name{color:var(--g)}
+.svc-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.5;margin-top:6px;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s,opacity .3s}
+.svc-card:hover .svc-desc{max-height:44px;opacity:1}
+.svc-wa{font-family:var(--fm);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--w);margin-top:10px;opacity:0;transform:translateY(5px);display:inline-block;transition:opacity .3s,transform .3s;cursor:none}
+.svc-card:hover .svc-wa{opacity:1;transform:translateY(0)}
+
+/* ─── FLASH ──────────────────────────── */
+#flash{background:var(--bg2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:100px 52px}
+.flash-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1320px;margin:0 auto;align-items:start}
+.flash-h{font-family:var(--fh);font-size:clamp(52px,7vw,92px);line-height:.88;letter-spacing:.04em;margin-bottom:4px}
+.flash-price{font-family:var(--fh);font-size:clamp(52px,6vw,80px);line-height:1;color:var(--w);margin-bottom:28px}
+.flash-price small{font-family:var(--fm);font-size:12px;letter-spacing:.12em;color:var(--g)}
+.flash-list{list-style:none;margin-bottom:36px;display:flex;flex-direction:column;gap:8px}
+.flash-list li{font-size:14px;font-weight:300;color:var(--muted);display:flex;align-items:center;gap:10px}
+.flash-list li::before{content:'—';color:var(--g);opacity:.5}
+.flash-form{background:var(--bg3);padding:36px;border:1px solid var(--rule)}
+.ff-title{font-family:var(--fh);font-size:22px;letter-spacing:.1em;color:var(--w);margin-bottom:22px}
+.ff-g{margin-bottom:14px}
+.ff-g label{display:block;font-family:var(--fm);font-size:8.5px;letter-spacing:.28em;color:rgba(239,239,239,.35);text-transform:uppercase;margin-bottom:6px}
+.ff-g input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--rule);color:var(--w);font-family:var(--fb);font-size:15px;font-weight:300;padding:8px 0;outline:none;transition:border-color .2s}
+.ff-g input:focus{border-color:rgba(239,239,239,.35)}
+.ff-cks{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.ff-cks label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.ff-cks input[type=checkbox]{width:13px;height:13px;accent-color:var(--w);cursor:pointer}
+.ff-cks span{font-size:13px;font-weight:300;color:var(--muted)}
+.ff-cks label:hover span{color:var(--w)}
+.ff-btn{width:100%;padding:14px;background:var(--w);color:var(--bg);border:none;font-family:var(--fh);font-size:18px;letter-spacing:.12em;cursor:pointer;margin-top:8px;transition:opacity .2s}
+.ff-btn:hover{opacity:.85}
+
+/* ─── SHOWS ──────────────────────────── */
+#shows{padding:80px 52px;max-width:1320px;margin:0 auto}
+.shows-list{margin-top:44px;display:flex;flex-direction:column}
+.show-row{display:grid;grid-template-columns:80px 1px 1fr auto auto;align-items:center;gap:24px;padding:22px 8px;border-bottom:1px solid var(--rule);cursor:none;transition:background .2s}
+.show-row:first-child{border-top:1px solid var(--rule)}
+.show-row:hover{background:rgba(239,239,239,.02)}
+.si-date{display:flex;flex-direction:column;align-items:center}
+.si-d{font-family:var(--fh);font-size:clamp(26px,3.5vw,42px);line-height:1;color:var(--w)}
+.si-m{font-family:var(--fm);font-size:8.5px;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;margin-top:2px}
+.si-line{width:1px;height:100%;background:var(--rule);align-self:stretch;min-height:36px}
+.si-name{font-family:var(--fh);font-size:clamp(18px,2.4vw,28px);letter-spacing:.04em;color:var(--w);transition:color .22s}
+.show-row:hover .si-name{color:var(--g)}
+.si-venue{font-family:var(--fm);font-size:9px;letter-spacing:.1em;color:var(--muted);margin-top:3px;text-transform:uppercase}
+.si-tag{font-family:var(--fm);font-size:8px;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--rule);color:var(--muted);white-space:nowrap;transition:border-color .2s,color .2s}
+.show-row:hover .si-tag{border-color:rgba(239,239,239,.25);color:rgba(239,239,239,.6)}
+.si-btn{font-family:var(--fm);font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:10px 22px;border:1px solid rgba(239,239,239,.14);color:var(--w);background:transparent;cursor:none;white-space:nowrap;transition:background .2s,border-color .2s,color .2s;display:inline-block}
+.si-btn:hover{background:var(--w);color:var(--bg);border-color:var(--w)}
+
+/* ─── GALLERY ────────────────────────── */
+#gallery{padding:80px 0 0}
+.gal-hdr{padding:0 52px;margin-bottom:40px}
+.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:260px;gap:2px;padding:0 2px}
+.gi{position:relative;overflow:hidden;cursor:none}
+.gi:nth-child(1){grid-column:span 4;grid-row:span 2}
+.gi:nth-child(2){grid-column:span 5}
+.gi:nth-child(3){grid-column:span 3}
+.gi:nth-child(4){grid-column:span 3}
+.gi:nth-child(5){grid-column:span 2}
+.gi:nth-child(6){grid-column:span 4}
+.gi img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(10%) brightness(.85);transition:transform .5s ease,filter .4s}
+.gi:hover img{transform:scale(1.055);filter:grayscale(0%) brightness(1)}
+.gi-ov{position:absolute;inset:0;background:rgba(6,6,6,0);transition:background .3s;display:flex;align-items:flex-end;padding:18px}
+.gi:hover .gi-ov{background:rgba(6,6,6,.55)}
+.gi-lbl{font-family:var(--fh);font-size:16px;letter-spacing:.16em;color:var(--w);opacity:0;transform:translateY(5px);transition:opacity .3s,transform .3s}
+.gi:hover .gi-lbl{opacity:1;transform:translateY(0)}
+
+/* ─── CONTACT ────────────────────────── */
+#contact{border-top:1px solid var(--rule)}
+.contact-layout{display:grid;grid-template-columns:400px 1fr}
+.contact-left{background:var(--bg2);padding:80px 52px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--rule);position:relative;overflow:hidden}
+.contact-left::before{content:'BOOKING';position:absolute;bottom:-40px;left:-20px;font-family:var(--fh);font-size:180px;color:rgba(239,239,239,.018);line-height:1;pointer-events:none;user-select:none}
+.contact-h{font-family:var(--fh);font-size:clamp(52px,5.5vw,80px);line-height:.9;letter-spacing:.04em;margin-bottom:14px;position:relative;z-index:1}
+.contact-sub{font-family:var(--fb);font-size:14px;font-weight:300;line-height:1.7;color:var(--muted);margin-bottom:36px;position:relative;z-index:1}
+.c-links{display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
+.c-link{display:flex;align-items:center;gap:14px;cursor:none;transition:opacity .2s}
+.c-link:hover{opacity:.7}
+.c-icon{font-size:16px;color:var(--muted);width:24px;text-align:center;flex-shrink:0}
+.c-link strong{display:block;font-family:var(--fm);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--w)}
+.c-link small{font-family:var(--fm);font-size:9.5px;letter-spacing:.1em;color:var(--muted)}
+.contact-right{padding:80px 60px;background:var(--bg)}
+.cf{display:flex;flex-direction:column;gap:2px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px}
+.cf-g{display:flex;flex-direction:column;background:rgba(239,239,239,.015);margin-bottom:2px}
+.cf-g.full{grid-column:1/-1}
+.cf-g label{font-family:var(--fm);font-size:8.5px;letter-spacing:.25em;color:rgba(239,239,239,.3);text-transform:uppercase;padding:12px 16px 4px}
+.cf-g input,.cf-g select,.cf-g textarea{background:transparent;border:none;border-bottom:1px solid var(--rule);color:var(--w);font-family:var(--fb);font-size:15px;font-weight:300;padding:6px 16px 12px;outline:none;transition:border-color .2s;appearance:none;width:100%}
+.cf-g input:focus,.cf-g select:focus,.cf-g textarea:focus{border-color:rgba(239,239,239,.3)}
+.cf-g select option{background:#111}
+.cf-g textarea{resize:vertical;min-height:70px}
+.cf-submit{width:100%;padding:16px;background:var(--w);border:none;font-family:var(--fh);font-size:20px;letter-spacing:.12em;color:var(--bg);cursor:pointer;margin-top:8px;transition:opacity .2s}
+.cf-submit:hover{opacity:.85}
+
+/* footer */
+footer{background:var(--bg);border-top:1px solid var(--rule);padding:32px 52px}
+.ft{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ft-brand{font-family:var(--fh);font-size:22px;letter-spacing:.14em;color:var(--w)}
+.ft-brand em{color:var(--g);font-style:normal}
+.ft-copy{font-family:var(--fm);font-size:8.5px;letter-spacing:.12em;color:rgba(239,239,239,.2)}
+.ft-soc{display:flex;gap:20px}
+.ft-soc a{font-family:var(--fm);font-size:8.5px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;transition:color .2s}
+.ft-soc a:hover{color:var(--w)}
+
+/* toast */
+.toast{position:fixed;bottom:28px;right:28px;z-index:9999;border-left:2px solid var(--w);background:var(--bg2);font-family:var(--fm);font-size:10px;letter-spacing:.1em;color:var(--w);padding:12px 20px;transform:translateY(8px);opacity:0;transition:transform .4s,opacity .4s;pointer-events:none}
+.toast.on{transform:translateY(0);opacity:1}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.rvl{opacity:0;transform:translateX(-24px);transition:opacity .7s ease,transform .7s ease}
+.rvl.in{opacity:1;transform:translateX(0)}
+.rvr{opacity:0;transform:translateX(24px);transition:opacity .7s ease,transform .7s ease}
+.rvr.in{opacity:1;transform:translateX(0)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  #about{grid-template-columns:1fr}
+  .flash-layout{grid-template-columns:1fr;gap:44px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-layout{grid-template-columns:1fr}
+  .contact-left{min-height:auto;padding:60px 52px}
+  .gal-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:220px}
+  .gi:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .gi:nth-child(2){grid-column:span 4}
+  .gi:nth-child(3){grid-column:span 3}
+  .gi:nth-child(4){grid-column:span 3}
+  .gi:nth-child(5){grid-column:span 2}
+  .gi:nth-child(6){grid-column:span 4}
+}
+@media(max-width:768px){
+  nav{padding:14px 24px}
+  nav.stuck{padding:12px 24px}
+  .nav-links{display:none}
+  .hbg{display:flex}
+  #about,#services,#shows,#flash,#gallery .gal-hdr,footer{padding-left:24px;padding-right:24px}
+  .hero-body{padding:0 24px 110px}
+  .hero-h1 em{font-size:64px}
+  .hero-h1 strong{font-size:88px}
+  .svc-grid{grid-template-columns:1fr}
+  .svc-card{height:280px}
+  .cf-row{grid-template-columns:1fr}
+  .contact-right,.contact-left{padding:48px 24px}
+  .show-row{grid-template-columns:70px 1px 1fr auto;gap:14px}
+  .si-tag{display:none}
+  .ft{flex-direction:column;align-items:flex-start;gap:14px}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .gi:nth-child(n){grid-column:span 1;grid-row:span 1}
+  .gi:nth-child(1){grid-column:span 2}
+}
+</style>
+</head>
+<body>
+
+<div id="cr"></div>
+
+<div id="pre">
+  <div class="pre-dj">DJ</div>
+  <div class="pre-franz">FRANZ</div>
+  <div class="pre-bar"><div class="pre-fill"></div></div>
+</div>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">DJ FRANZ</a>
+  <div class="nav-links">
+    <a href="#about">Bio</a>
+    <a href="#services">Servicios</a>
+    <a href="#flash">Flash Memory</a>
+    <a href="#shows">Shows</a>
+    <a href="#gallery">Galería</a>
+    <a href="#contact">Contacto</a>
+  </div>
+  <a href="https://wa.me/593997790261" target="_blank" class="hwa">✆</a>
+  <button class="hbg" id="hbg"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob" id="mob">
+  <a href="#about">Bio</a>
+  <a href="#services">Servicios</a>
+  <a href="#flash">Flash Memory</a>
+  <a href="#shows">Shows</a>
+  <a href="#gallery">Galería</a>
+  <a href="#contact">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <img src="images/hero/IMG_0015_JPG.jpeg" alt="DJ Franz en vivo" class="hero-img">
+  <div class="hero-ov"></div>
+  <div class="hero-body">
+    <p class="hero-loc">Santo Domingo · Ecuador · USA</p>
+    <h1 class="hero-h1">
+      <em>DJ</em>
+      <strong>FRANZ</strong>
+    </h1>
+    <p class="hero-sub rv">Experiencias musicales de otro nivel</p>
+    <div class="hero-btns rv">
+      <a href="#contact" class="btn-w">Reservar evento</a>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!" target="_blank" class="btn-o">✆ WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="hst"><span class="hst-n" data-t="20">0</span><span class="hst-p">+</span><small>Años</small></div>
+    <div class="hst-d"></div>
+    <div class="hst"><span class="hst-n" data-t="50">0</span><span class="hst-p">+</span><small>Artistas internac.</small></div>
+    <div class="hst-d"></div>
+    <div class="hst"><span class="hst-n" data-t="500">0</span><span class="hst-p">+</span><small>Eventos</small></div>
+    <div class="hst-d"></div>
+    <div class="hst"><span class="hst-n" data-t="10">0</span><span class="hst-p">+</span><small>Estados USA</small></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq"><div class="mq-t" id="mq"></div></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img rvl">
+    <img src="images/hero/IMG_6174.PNG" alt="DJ Franz">
+  </div>
+  <div class="about-txt rvr">
+    <p class="eyebrow">— Quién soy</p>
+    <h2 class="sec-h">El DJ que mueve<br><em>Ecuador</em></h2>
+    <br>
+    <p class="about-p">Con casi <strong>20 años de trayectoria</strong>, ha abierto conciertos a más de <strong>50 artistas internacionales</strong> — Maluma, J Balvin, Enrique Iglesias, Carlos Vives, Nicky Jam y muchos más.</p>
+    <p class="about-p">DJ oficial de las <strong>Noches Amarillas de Barcelona S.C.</strong> De gira por la Costa Este de USA con EmerShows. Reconocido por el <strong>Alcalde de Santo Domingo</strong> y la Asamblea Nacional.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-n" data-t="20">0+</div><div class="stat-l">Años trayectoria</div></div>
+      <div class="stat"><div class="stat-n" data-t="50">0+</div><div class="stat-l">Artistas internac.</div></div>
+      <div class="stat"><div class="stat-n" data-t="500">0+</div><div class="stat-l">Eventos realizados</div></div>
+      <div class="stat"><div class="stat-n" data-t="10">0+</div><div class="stat-l">Estados USA</div></div>
+    </div>
+    <div class="about-btns">
+      <a href="#contact" class="btn-w">Reservar</a>
+      <a href="https://wa.me/593997790261" target="_blank" class="btn-o">✆ WhatsApp</a>
+    </div>
+  </div>
+  <div class="about-ticker">
+    <div class="at-t" id="at"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="svc-hdr rv">
+    <div>
+      <p class="eyebrow">— Lo que hago</p>
+      <h2 class="sec-h">Servicios</h2>
+    </div>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card rv" data-msg="Hola DJ Franz! quiero cotizar mi Boda 💍">
+      <img src="images/services/IMG_0754_JPG.jpeg" alt="Bodas">
+      <div class="svc-info">
+        <div class="svc-num">01</div>
+        <div class="svc-name">BODAS</div>
+        <div class="svc-desc">El soundtrack perfecto para el día más especial.</div>
+        <span class="svc-wa">✆ Cotizar</span>
+      </div>
+    </div>
+    <div class="svc-card rv" data-msg="Hola DJ Franz! quiero cotizar una Quinceañera 👑">
+      <img src="images/services/IMG_1845_JPG.jpeg" alt="Quinceañeras">
+      <div class="svc-info">
+        <div class="svc-num">02</div>
+        <div class="svc-name">QUINCEAÑERAS</div>
+        <div class="svc-desc">Una noche mágica merece la mejor música.</div>
+        <span class="svc-wa">✆ Cotizar</span>
+      </div>
+    </div>
+    <div class="svc-card rv" data-msg="Hola DJ Franz! quiero cotizar un Evento Privado 🎉">
+      <img src="images/services/IMG_5009_JPG.jpeg" alt="Eventos Privados">
+      <div class="svc-info">
+        <div class="svc-num">03</div>
+        <div class="svc-name">EVENTOS PRIVADOS</div>
+        <div class="svc-desc">Corporativos, VIP y aniversarios personalizados.</div>
+        <span class="svc-wa">✆ Cotizar</span>
+      </div>
+    </div>
+    <div class="svc-card rv" data-msg="Hola DJ Franz! info Shows en Discotecas 🎧">
+      <img src="images/services/IMG_7432_JPG.jpeg" alt="Discotecas">
+      <div class="svc-info">
+        <div class="svc-num">04</div>
+        <div class="svc-name">DISCOTECAS</div>
+        <div class="svc-desc">Residencias y shows de alto impacto.</div>
+        <span class="svc-wa">✆ Cotizar</span>
+      </div>
+    </div>
+    <div class="svc-card rv" data-msg="Hola DJ Franz! info Conciertos Opening 🎤">
+      <img src="images/services/IMG_7894_JPG.jpeg" alt="Conciertos Opening">
+      <div class="svc-info">
+        <div class="svc-num">05</div>
+        <div class="svc-name">CONCIERTOS OPENING</div>
+        <div class="svc-desc">DJ oficial de apertura para artistas internacionales.</div>
+        <span class="svc-wa">✆ Cotizar</span>
+      </div>
+    </div>
+    <div class="svc-card rv" data-msg="Hola DJ Franz! quiero cotizar una Pool Party 🌴">
+      <img src="images/services/IMG_0741_JPG.jpeg" alt="Pool Parties">
+      <div class="svc-info">
+        <div class="svc-num">06</div>
+        <div class="svc-name">POOL PARTIES</div>
+        <div class="svc-desc">Energía y ritmo premium al aire libre.</div>
+        <span class="svc-wa">✆ Cotizar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLASH MEMORY -->
+<section id="flash">
+  <div class="flash-layout">
+    <div class="rvl">
+      <p class="eyebrow">— Producto</p>
+      <h2 class="flash-h">Flash<br>Memory</h2>
+      <div class="flash-price">$25 <small>envío incluido</small></div>
+      <ul class="flash-list">
+        <li>64 GB de música 100% personalizada</li>
+        <li>Audio y Video de alta calidad</li>
+        <li>Todos los géneros: reggaeton, salsa, cumbia, pop, rock</li>
+        <li>Envío a todo Ecuador</li>
+      </ul>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20la%20Flash%20Memory%2064GB%20-%20%2425" target="_blank" class="btn-o" style="display:inline-flex">✆ Pedir directo</a>
+    </div>
+    <div class="flash-form rvr">
+      <p class="ff-title">Personaliza tu pedido</p>
+      <form id="ffForm">
+        <div class="ff-g"><label>Tu nombre</label><input id="ff-n" type="text" placeholder="¿Cómo te llamas?" required></div>
+        <div class="ff-g"><label>Ciudad de entrega</label><input id="ff-c" type="text" placeholder="¿A qué ciudad enviamos?" required></div>
+        <div class="ff-g">
+          <label>Géneros favoritos</label>
+          <div class="ff-cks">
+            <label><input type="checkbox" value="Reggaeton"><span>Reggaeton</span></label>
+            <label><input type="checkbox" value="Salsa"><span>Salsa</span></label>
+            <label><input type="checkbox" value="Cumbia"><span>Cumbia</span></label>
+            <label><input type="checkbox" value="Merengue"><span>Merengue</span></label>
+            <label><input type="checkbox" value="Pop"><span>Pop</span></label>
+            <label><input type="checkbox" value="Rock"><span>Rock</span></label>
+            <label><input type="checkbox" value="Electrónica"><span>Electrónica</span></label>
+            <label><input type="checkbox" value="Bachata"><span>Bachata</span></label>
+          </div>
+        </div>
+        <div class="ff-g"><label>Artistas favoritos</label><input id="ff-a" type="text" placeholder="Ej: Jombriel, Maluma, Daddy Yankee..."></div>
+        <button type="submit" class="ff-btn">✆ Enviar pedido por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section id="shows">
+  <div class="rv">
+    <p class="eyebrow">— Agenda</p>
+    <h2 class="sec-h">Próximos Shows</h2>
+  </div>
+  <div class="shows-list">
+    <div class="show-row rv">
+      <div class="si-date"><span class="si-d">14</span><span class="si-m">Jun '25</span></div>
+      <div class="si-line"></div>
+      <div><div class="si-name">Noche Amarilla — Barcelona S.C.</div><div class="si-venue">Estadio Monumental · Guayaquil</div></div>
+      <span class="si-tag">Show</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20info%20Noche%20Amarilla" target="_blank" class="si-btn">✆ Info</a>
+    </div>
+    <div class="show-row rv">
+      <div class="si-date"><span class="si-d">21</span><span class="si-m">Jun '25</span></div>
+      <div class="si-line"></div>
+      <div><div class="si-name">EmerShows USA Tour</div><div class="si-venue">Danbury · Connecticut, USA</div></div>
+      <span class="si-tag">Internacional</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20info%20USA%20Tour" target="_blank" class="si-btn">✆ Info</a>
+    </div>
+    <div class="show-row rv">
+      <div class="si-date"><span class="si-d">05</span><span class="si-m">Jul '25</span></div>
+      <div class="si-line"></div>
+      <div><div class="si-name">Show Discoteca Premium</div><div class="si-venue">Por confirmar · Santo Domingo</div></div>
+      <span class="si-tag">Club</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20info%20show%20discoteca" target="_blank" class="si-btn">✆ Info</a>
+    </div>
+    <div class="show-row rv">
+      <div class="si-date"><span class="si-d">19</span><span class="si-m">Jul '25</span></div>
+      <div class="si-line"></div>
+      <div><div class="si-name">Concierto Opening — Int'l</div><div class="si-venue">Por confirmar · Ecuador</div></div>
+      <span class="si-tag">Concierto</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20info%20concierto%20opening" target="_blank" class="si-btn">✆ Info</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding-bottom:0">
+  <div class="gal-hdr rv">
+    <p class="eyebrow">— Momentos</p>
+    <h2 class="sec-h">Galería</h2>
+  </div>
+  <div class="gal-grid rv">
+    <div class="gi"><img src="images/gallery/IMG_6621_JPG.jpeg" alt="DJ Franz Club Night" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Club Night</span></div></div>
+    <div class="gi"><img src="images/gallery/IMG_7445_JPG.jpeg" alt="DJ Franz Show" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Show</span></div></div>
+    <div class="gi"><img src="images/gallery/IMG_5018_JPG.jpeg" alt="DJ Franz Opening" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Opening</span></div></div>
+    <div class="gi"><img src="images/gallery/IMG_5698_JPG.jpeg" alt="DJ Franz" loading="lazy"><div class="gi-ov"><span class="gi-lbl">USA Tour</span></div></div>
+    <div class="gi"><img src="images/gallery/DSC00527_jpg.jpeg" alt="DJ Franz Pool Party" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Pool Party</span></div></div>
+    <div class="gi"><img src="images/gallery/IMG_0760_JPG.jpeg" alt="DJ Franz" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Quinceañera</span></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:0">
+  <div class="contact-layout">
+    <div class="contact-left rvl">
+      <p class="eyebrow">— Reservas</p>
+      <h2 class="contact-h">Hablemos</h2>
+      <p class="contact-sub">Cuéntanos sobre tu evento y te respondemos de inmediato por WhatsApp.</p>
+      <div class="c-links">
+        <a href="https://wa.me/593997790261" target="_blank" class="c-link">
+          <span class="c-icon">✆</span><div><strong>WhatsApp</strong><small>+593 99 779 0261</small></div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="c-link">
+          <span class="c-icon">◈</span><div><strong>Instagram</strong><small>@djfranz_oficial</small></div>
+        </a>
+        <div class="c-link"><span class="c-icon">◉</span><div><strong>Base</strong><small>Santo Domingo · Ecuador</small></div></div>
+      </div>
+    </div>
+    <div class="contact-right rvr">
+      <form id="cForm" class="cf">
+        <div class="cf-row">
+          <div class="cf-g"><label>Nombre</label><input id="cn" type="text" placeholder="Tu nombre" required></div>
+          <div class="cf-g"><label>WhatsApp</label><input id="cph" type="tel" placeholder="+593 XX XXX XXXX" required></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-g"><label>Tipo de evento</label>
+            <select id="ct" required>
+              <option value="" disabled selected>Seleccionar</option>
+              <option>Boda</option><option>Quinceañera</option><option>Evento privado</option>
+              <option>Show en discoteca</option><option>Concierto Opening</option>
+              <option>Pool Party</option><option>After Party</option><option>Corporativo</option>
+            </select>
+          </div>
+          <div class="cf-g"><label>Fecha</label><input id="cdt" type="date" required></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-g"><label>Ciudad</label><input id="ccy" type="text" placeholder="Ciudad del evento"></div>
+          <div class="cf-g"><label>Presupuesto</label>
+            <select id="cbg">
+              <option value="" disabled selected>Aprox.</option>
+              <option>Menos de $500</option><option>$500 – $1,000</option>
+              <option>$1,000 – $2,500</option><option>$2,500 – $5,000</option><option>Más de $5,000</option>
+            </select>
+          </div>
+        </div>
+        <div class="cf-g full"><label>Detalles</label><textarea id="cmsg" placeholder="Cuéntanos sobre tu evento..." rows="3"></textarea></div>
+        <button type="submit" class="cf-submit">✆ Enviar por WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-brand">DJ <em>FRANZ</em></div>
+      <div class="ft-copy">© 2025 · Santo Domingo de los Tsáchilas, Ecuador</div>
+    </div>
+    <div class="ft-soc">
+      <a href="https://instagram.com" target="_blank">IG</a>
+      <a href="https://facebook.com" target="_blank">FB</a>
+      <a href="https://tiktok.com" target="_blank">TK</a>
+      <a href="https://youtube.com" target="_blank">YT</a>
+      <a href="https://wa.me/593997790261" target="_blank">WA</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const WA='593997790261';
+const wa=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
+
+// Preloader
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('pre').classList.add('out'),2000));
+
+// Cursor
+const cr=document.getElementById('cr');
+document.addEventListener('mousemove',e=>{cr.style.left=e.clientX+'px';cr.style.top=e.clientY+'px';});
+document.querySelectorAll('a,button,.svc-card,.show-row,.gi').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cr.classList.add('xl'));
+  el.addEventListener('mouseleave',()=>cr.classList.remove('xl'));
+});
+
+// Nav
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>80));
+
+// Hamburger
+document.getElementById('hbg').addEventListener('click',()=>document.getElementById('mob').classList.toggle('open'));
+document.querySelectorAll('.mob a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mob').classList.remove('open')));
+
+// Marquee
+const mq=document.getElementById('mq');
+const mqi=['BODAS','QUINCEAÑERAS','DISCOTECAS','CONCIERTOS','POOL PARTIES','USA TOUR','FLASH MEMORY 64GB','AFTER PARTIES'];
+mq.innerHTML=[...mqi,...mqi,...mqi].map(i=>`<span class="mq-i">${i}<span class="mq-dot"></span></span>`).join('');
+
+// Artists ticker
+const arts=['Jombriel','La Locura','Jossimar','Dayanara Peralta','WaldoKinc','Bebo Yau','El Tita','Paolo Plaza','Maluma','J Balvin','Bad Bunny','Nicky Jam','Carlos Vives','Silvestre','Marc Anthony','Karol G','Shakira','Enrique Iglesias','Daddy Yankee','Arcángel'];
+const at=document.getElementById('at');
+at.innerHTML=[...arts,...arts].map(a=>`<span class="at-nm">${a}<span class="at-dot"> · </span></span>`).join('');
+
+// Reveal
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el=>ro.observe(el));
+
+// Counters
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting||e.target.dataset.done)return;
+  e.target.dataset.done='1';
+  const t=parseInt(e.target.dataset.t);let v=0;
+  const iv=setInterval(()=>{v=Math.min(v+t/55,t);e.target.textContent=Math.floor(v)+'+';if(v>=t)clearInterval(iv);},18);
+  co.unobserve(e.target);
+}),{threshold:.5});
+document.querySelectorAll('.hst-n[data-t],.stat-n[data-t]').forEach(el=>co.observe(el));
+
+// Services WA
+document.querySelectorAll('.svc-card').forEach(c=>{
+  c.addEventListener('click',()=>window.open(wa(c.dataset.msg),'_blank'));
+});
+
+// Toast
+const toast=msg=>{const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),4500);};
+
+// Flash form
+document.getElementById('ffForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const n=document.getElementById('ff-n').value.trim(),c=document.getElementById('ff-c').value.trim();
+  const a=document.getElementById('ff-a').value.trim();
+  const g=[...document.querySelectorAll('#ffForm input[type=checkbox]:checked')].map(x=>x.value).join(', ');
+  if(!n||!c){toast('Completa nombre y ciudad.');return;}
+  let m=`Hola DJ Franz! 🎵 Quiero la Flash Memory 64GB.\n\n👤 ${n}\n📍 ${c}`;
+  if(g)m+=`\n🎵 Géneros: ${g}`;if(a)m+=`\n🎤 Artistas: ${a}`;
+  m+=`\n\n💰 $25 (envío incluido)`;
+  window.open(wa(m),'_blank');this.reset();toast('✓ Abriendo WhatsApp...');
+});
+
+// Contact form
+document.getElementById('cForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const n=document.getElementById('cn').value.trim(),p=document.getElementById('cph').value.trim();
+  const t=document.getElementById('ct').value,dt=document.getElementById('cdt').value;
+  const cy=document.getElementById('ccy').value.trim(),bg=document.getElementById('cbg').value;
+  const mg=document.getElementById('cmsg').value.trim();
+  if(!n||!p||!t){toast('Completa nombre, teléfono y tipo de evento.');return;}
+  let m=`Hola DJ Franz! 🎧 Quiero reservar un evento.\n\n👤 ${n}\n📱 ${p}\n🎉 ${t}`;
+  if(dt)m+=`\n📅 ${dt}`;if(cy)m+=`\n📍 ${cy}`;if(bg)m+=`\n💰 ${bg}`;if(mg)m+=`\n📝 ${mg}`;
+  window.open(wa(m),'_blank');this.reset();toast('✓ Abriendo WhatsApp...');
+});
+</script>
+</body>
+</html>
