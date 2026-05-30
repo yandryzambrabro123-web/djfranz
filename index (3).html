@@ -26,10 +26,10 @@
 .about-photo{
   position:absolute !important;
   top:0 !important; right:0 !important;
-  width:100% !important;
+  width:62% !important;
   height:100% !important;
   object-fit:cover !important;
-  object-position:right center !important;
+  object-position:center top !important;
   display:block !important;
   z-index:1;
   filter:none;
@@ -72,7 +72,7 @@
   transform:none !important;
   width:clamp(320px,46%,600px) !important;
   z-index:3 !important;
-  background:transparent !important;
+  background:linear-gradient(to right, rgba(6,6,6,1) 0%, rgba(6,6,6,.95) 30%, transparent 55%) !important;
   padding:100px 0 100px 7% !important;
   display:flex !important;
   flex-direction:column;
@@ -143,9 +143,9 @@
 }
 
 @media(max-width:900px){
-  .about-photo{width:100% !important;position:relative !important;top:auto !important;right:auto !important;height:60vw !important}
+  .about-photo{width:62% !important;position:relative !important;top:auto !important;right:auto !important;height:60vw !important}
   .about-overlay{background:linear-gradient(to bottom,transparent 40%,rgba(6,6,6,1) 100%) !important}
-  .about-content{width:100% !important;padding:40px 24px !important;min-height:auto}
+  .about-content{width:62% !important;padding:40px 24px !important;min-height:auto}
 }
 </style>
 </head>
