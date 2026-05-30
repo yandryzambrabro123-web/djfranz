@@ -494,3 +494,8 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   0%,100%{transform:translateY(-50%)}
   50%{transform:translateY(calc(-50% - 18px))}
 }
+
+@keyframes logoFloat{
+  0%,100%{transform:translateY(-50%)}
+  50%{transform:translateY(calc(-50% - 20px))}
+}
