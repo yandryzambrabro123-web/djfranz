@@ -373,3 +373,31 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* ─── GALLERY SLIDER ─── */
+#gallery { overflow: hidden; }
+.gal-track {
+  display: flex !important;
+  gap: 1rem;
+  animation: slideGallery 80s linear infinite;
+  width: max-content !important;
+}
+.gal-track:hover { animation-play-state: paused; }
+.gal-slide {
+  flex-shrink: 0;
+  width: 320px;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.gal-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.gal-slide:hover img { transform: scale(1.06); }
+@keyframes slideGallery {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
