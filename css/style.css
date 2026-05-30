@@ -417,3 +417,43 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* ─── BIO MEJORADA ─── */
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+.about-photo-wrap {
+  position: relative;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.about-photo-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+  border-radius: 20px;
+}
+.about-stats {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.astat span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+}
+.astat small {
+  font-size: .75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: .6;
+}
