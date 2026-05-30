@@ -13,64 +13,139 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* BIO — FOTO FULL WIDTH BORDE A BORDE */
+/* ══ BIO PREMIUM ══ */
 .about-sec{
   position:relative !important;
   display:block !important;
-  width:100% !important;
+  min-height:100vh;
+  background:#060606;
   overflow:hidden !important;
 }
+
+/* Foto pegada a la derecha, ocupa toda la altura */
 .about-photo{
-  position:relative !important;
-  display:block !important;
-  width:100% !important;
-  height:auto !important;
-  max-width:100% !important;
-  object-fit:contain !important;
+  position:absolute !important;
+  top:0 !important; right:0 !important;
+  width:62% !important;
+  height:100% !important;
+  object-fit:cover !important;
   object-position:center top !important;
+  display:block !important;
   z-index:1;
+  filter:contrast(1.05) brightness(.95);
 }
+
+/* Gradiente que funde la foto con el fondo a la izquierda */
 .about-overlay{
+  display:block !important;
   position:absolute !important;
   inset:0 !important;
-  background:linear-gradient(to right, rgba(6,6,6,.85) 0%, transparent 35%, transparent 65%, rgba(6,6,6,.85) 100%), linear-gradient(to bottom, transparent 60%, rgba(6,6,6,.8) 100%) !important;
+  background:linear-gradient(
+    to right,
+    rgba(6,6,6,1) 0%,
+    rgba(6,6,6,.95) 25%,
+    rgba(6,6,6,.5) 45%,
+    transparent 65%
+  ) !important;
   z-index:2 !important;
   pointer-events:none;
 }
+
+/* Efecto de luz ambiental */
+.about-sec::before{
+  content:'';
+  position:absolute;
+  top:-10%;left:-10%;
+  width:60%;height:80%;
+  background:radial-gradient(ellipse,rgba(80,80,80,.06) 0%,transparent 70%);
+  z-index:2;
+  pointer-events:none;
+  animation:ambLight 6s ease-in-out infinite alternate;
+}
+@keyframes ambLight{from{opacity:.4;transform:scale(1)}to{opacity:1;transform:scale(1.1)}}
+
+/* Texto a la izquierda */
 .about-content{
-  position:absolute !important;
-  bottom:8% !important;
-  right:4% !important;
+  position:relative !important;
   top:auto !important;
+  right:auto !important;
   transform:none !important;
-  width:clamp(260px,28%,400px) !important;
+  width:clamp(320px,46%,600px) !important;
   z-index:3 !important;
   background:transparent !important;
-  padding:0 !important;
+  padding:100px 0 100px 7% !important;
+  display:flex !important;
+  flex-direction:column;
+  justify-content:center;
+  min-height:100vh;
 }
+
+.about-content .eyebrow{
+  font-size:9px;
+  letter-spacing:.5em;
+  color:#555;
+  margin-bottom:24px;
+  display:flex;align-items:center;gap:12px;
+}
+.about-content .eyebrow::before{
+  content:'';width:32px;height:1px;background:#555;flex-shrink:0;
+}
+
+/* Titulo gigante */
 .about-h{
-  font-size:clamp(36px,4vw,60px) !important;
-  line-height:.9 !important;
-  margin-bottom:16px !important;
+  font-size:clamp(56px,7vw,100px) !important;
+  line-height:.86 !important;
+  letter-spacing:.02em !important;
+  margin-bottom:36px !important;
   color:#EFEFEF !important;
 }
-.about-h em{color:#555 !important;font-style:normal !important}
-.ab-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(239,239,239,.12);margin:14px 0;background:rgba(6,6,6,.7);backdrop-filter:blur(12px)}
-.ab-st{padding:12px 10px;border-right:1px solid rgba(239,239,239,.1);text-align:center}
+.about-h em{color:#333 !important;font-style:normal !important}
+
+/* Stats */
+.ab-stats{
+  display:flex;
+  gap:0;
+  border:1px solid rgba(239,239,239,.08);
+  margin-bottom:36px;
+}
+.ab-st{
+  flex:1;padding:18px 16px;
+  border-right:1px solid rgba(239,239,239,.08);
+  text-align:center;
+  transition:background .3s;
+}
+.ab-st:hover{background:rgba(239,239,239,.04)}
 .ab-st:last-child{border-right:none}
-.ab-sn{font-family:'Anton',sans-serif;font-size:clamp(20px,2vw,32px);color:#EFEFEF;line-height:1;display:block}
-.ab-sl{font-family:'DM Mono',monospace;font-size:7px;letter-spacing:.18em;color:#555;text-transform:uppercase;margin-top:3px;display:block}
-.about-body{background:rgba(6,6,6,.75);backdrop-filter:blur(10px);padding:14px;margin-bottom:14px;border-left:2px solid rgba(239,239,239,.12)}
-.about-body p{font-family:'Barlow Condensed',sans-serif !important;font-size:13px !important;font-weight:300;line-height:1.7;color:rgba(239,239,239,.55) !important;margin-bottom:8px}
+.ab-sn{font-family:'Anton',sans-serif;font-size:clamp(28px,3vw,44px);color:#EFEFEF;line-height:1;display:block}
+.ab-sl{font-family:'DM Mono',monospace;font-size:7.5px;letter-spacing:.2em;color:#555;text-transform:uppercase;margin-top:4px;display:block}
+
+/* Body text */
+.about-body{margin-bottom:32px;border-left:1px solid rgba(239,239,239,.1);padding-left:20px}
+.about-body p{
+  font-family:'Barlow Condensed',sans-serif !important;
+  font-size:16px !important;
+  font-weight:300;
+  line-height:1.8;
+  color:rgba(239,239,239,.45) !important;
+  margin-bottom:12px;
+}
 .about-body p:last-child{margin-bottom:0}
 .about-body strong{color:#EFEFEF !important;font-weight:600}
-.about-btns{display:flex;gap:10px;flex-wrap:wrap}
-.about-ticker{position:relative;z-index:3;background:#060606;border-top:1px solid rgba(239,239,239,.06)}
-.about-content .eyebrow{font-size:9px;letter-spacing:.4em;color:#666;margin-bottom:12px}
 
-@media(max-width:768px){
-  .about-content{position:relative !important;bottom:auto !important;right:auto !important;width:100% !important;padding:32px 24px !important;background:#0a0a0a !important}
-  .about-overlay{display:none !important}
+.about-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Ticker */
+.about-ticker{
+  position:relative !important;
+  z-index:3;
+  background:#060606;
+  border-top:1px solid rgba(239,239,239,.06);
+}
+
+@media(max-width:900px){
+  .about-photo{width:100% !important;position:relative !important;top:auto !important;right:auto !important;height:60vw !important}
+  .about-overlay{background:linear-gradient(to bottom,transparent 40%,rgba(6,6,6,1) 100%) !important}
+  .about-content{width:100% !important;padding:40px 24px !important;min-height:auto}
 }
 </style>
 </head>
