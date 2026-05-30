@@ -472,3 +472,15 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+.viz-bars{display:flex;align-items:flex-end;gap:4px;height:80px;padding:1rem 0}
+.viz-bar{width:6px;border-radius:3px 3px 0 0;background:linear-gradient(to top,#e63946,#ff9f1c);animation:vizAnim 0.8s ease-in-out infinite alternate}
+.viz-bar:nth-child(1){animation-duration:0.6s;height:30%}
+.viz-bar:nth-child(2){animation-duration:0.9s;height:60%}
+.viz-bar:nth-child(3){animation-duration:0.5s;height:90%}
+.viz-bar:nth-child(4){animation-duration:0.7s;height:50%}
+.viz-bar:nth-child(5){animation-duration:1.0s;height:80%}
+.viz-bar:nth-child(6){animation-duration:0.4s;height:40%}
+.viz-bar:nth-child(7){animation-duration:0.8s;height:70%}
+.viz-bar:nth-child(8){animation-duration:0.6s;height:55%}
+@keyframes vizAnim{from{transform:scaleY(0.3)}to{transform:scaleY(1)}}
