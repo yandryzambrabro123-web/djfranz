@@ -484,3 +484,8 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
 .viz-bar:nth-child(7){animation-duration:0.8s;height:70%}
 .viz-bar:nth-child(8){animation-duration:0.6s;height:55%}
 @keyframes vizAnim{from{transform:scaleY(0.3)}to{transform:scaleY(1)}}
+
+@keyframes logoFloat{
+  0%,100%{transform:translateY(-50%)}
+  50%{transform:translateY(calc(-50% - 18px))}
+}
