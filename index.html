@@ -3,376 +3,399 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DJ FRANZ — Santo Domingo · Ecuador · Internacional</title>
-<meta name="description" content="DJ Franz — casi 20 años de trayectoria. El mejor DJ de Santo Domingo de los Tsáchilas.">
-<meta property="og:title" content="DJ FRANZ — Experiencias musicales de otro nivel">
-<meta property="og:description" content="Casi 20 años de trayectoria. El mejor DJ de Santo Domingo.">
+<title>DJ FRANZ</title>
+<meta name="description" content="DJ Franz — El mejor DJ de Ecuador. Santo Domingo · Internacional.">
+<meta property="og:title" content="DJ FRANZ">
 <meta property="og:image" content="/images/hero/og-image.jpg">
 <meta property="og:url" content="https://djfranz.vercel.app">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Unbounded:wght@200;300;400;700;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- CURSOR + TRAIL -->
-<div id="cr"></div>
-<div id="cr-ring"></div>
+<div id="cur"></div>
 
 <!-- PRELOADER -->
 <div id="pre">
-  <div class="pre-inner">
-    <div class="pre-dj">DJ</div>
-    <div class="pre-franz">FRANZ</div>
+  <div class="pre-logo">
+    <span class="pl-dj">DJ</span>
+    <span class="pl-franz">FRANZ</span>
   </div>
-  <div class="pre-bar"><div class="pre-fill"></div></div>
-  <div class="pre-tag">Cargando experiencia...</div>
+  <div class="pre-line"><div class="pre-prog"></div></div>
 </div>
 
 <!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">DJ FRANZ</a>
-  <div class="nav-links">
+<header id="hdr">
+  <a href="#" class="hdr-logo">DJ FRANZ</a>
+  <nav class="hdr-nav">
     <a href="#about">Bio</a>
-    <a href="#services">Servicios</a>
-    <a href="#flash">Flash Memory</a>
-    <a href="#events">Fechas</a>
-    <a href="#gallery">Galería</a>
-    <a href="#booking" class="nav-cta">Reservar</a>
-  </div>
-  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-</nav>
+    <a href="#shows">Shows</a>
+    <a href="#flash">Flash</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+  <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!" target="_blank" class="hdr-wa">✆</a>
+  <button class="hbg" id="hbg"><span></span><span></span></button>
+</header>
 
-<div class="mob-menu" id="mobMenu">
-  <a href="#about">Bio</a>
-  <a href="#services">Servicios</a>
-  <a href="#flash">Flash Memory</a>
-  <a href="#events">Fechas</a>
-  <a href="#gallery">Galería</a>
-  <a href="#booking">Reservar</a>
+<div class="mob-menu" id="mob">
+  <a href="#about" class="mm-a">Bio</a>
+  <a href="#shows" class="mm-a">Shows</a>
+  <a href="#flash" class="mm-a">Flash Memory</a>
+  <a href="#contact" class="mm-a">Contacto</a>
+  <a href="https://wa.me/593997790261" target="_blank" class="mm-a mm-wa">✆ WhatsApp</a>
 </div>
 
-<!-- ═══ HERO ═══ -->
-<div id="hero">
-  <!-- Scanlines overlay -->
-  <div class="scanlines"></div>
-
-  <!-- Moving light beams -->
-  <div class="beams">
-    <div class="beam b1"></div>
-    <div class="beam b2"></div>
-    <div class="beam b3"></div>
-    <div class="beam b4"></div>
-  </div>
-
-  <!-- Atmospheric lights -->
-  <div class="hero-lights">
-    <div class="light l1"></div>
-    <div class="light l2"></div>
-    <div class="light l3"></div>
-  </div>
-
-  <!--
-    FOTO HERO: reemplaza con:
-    <img src="images/hero/dj-franz-hero.jpg" alt="DJ Franz" class="hero-img">
+<!-- ══════ HERO — FULLBLEED ══════ -->
+<section id="hero">
+  <!-- Background — FOTO O VIDEO aquí:
+    <img src="images/hero/dj-franz-hero.jpg" class="hero-bg-img" alt="DJ Franz">
+    O para video:
+    <video class="hero-bg-img" autoplay muted loop playsinline>
+      <source src="images/hero/hero-video.mp4" type="video/mp4">
+    </video>
   -->
-  <div class="hero-img-ph">
-    <div class="hiph-glow"></div>
-    <div class="hiph-icon">🎧</div>
+  <div class="hero-bg-ph">
+    <div class="hbp-noise"></div>
+    <div class="hbp-grad"></div>
   </div>
-  <div class="hero-overlay"></div>
+  <div class="hero-vignette"></div>
 
-  <!-- Audio Visualizer -->
-  <div class="visualizer" id="visualizer"></div>
+  <!-- Scanlines -->
+  <div class="scn"></div>
 
-  <div class="hero-content">
-    <p class="hero-tag rv">Santo Domingo · Ecuador · Internacional</p>
-    <h1 class="hero-h1">
-      <span class="h1-dj rv">DJ</span>
-      <span class="h1-franz rv">FRANZ</span>
-    </h1>
-    <!-- Rotating text -->
-    <div class="rotating-wrap rv">
-      <span class="rotating-prefix">—</span>
-      <span class="rotating-text" id="rotatingText">DJ Profesional</span>
-    </div>
-    <div class="hero-btns rv">
-      <a href="#booking" class="btn-main">Reservar evento</a>
-      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20información%20sobre%20tus%20servicios" target="_blank" class="btn-wa">
-        <span class="wa-icon">✆</span> WhatsApp
-      </a>
-    </div>
+  <!-- Beams -->
+  <div class="beams-wrap">
+    <div class="bm bm1"></div>
+    <div class="bm bm2"></div>
+    <div class="bm bm3"></div>
   </div>
 
-  <!-- Countdown to next event -->
-  <div class="hero-countdown">
-    <div class="cd-label">Próximo show en</div>
-    <div class="cd-blocks">
-      <div class="cd-block"><span id="cd-d">00</span><span class="cd-u">días</span></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-block"><span id="cd-h">00</span><span class="cd-u">hrs</span></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-block"><span id="cd-m">00</span><span class="cd-u">min</span></div>
-      <div class="cd-sep">:</div>
-      <div class="cd-block"><span id="cd-s">00</span><span class="cd-u">seg</span></div>
-    </div>
-  </div>
+  <!-- BIG BACKGROUND TEXT -->
+  <div class="hero-bg-text" aria-hidden="true">FRANZ</div>
 
-  <div class="hero-stats">
-    <div class="hs-item"><span class="hs-n" data-target="20">0</span><span class="hs-plus">+</span><div class="hs-l">Años</div></div>
-    <div class="hs-div"></div>
-    <div class="hs-item"><span class="hs-n" data-target="50">0</span><span class="hs-plus">+</span><div class="hs-l">Artistas</div></div>
-    <div class="hs-div"></div>
-    <div class="hs-item"><span class="hs-n" data-target="500">0</span><span class="hs-plus">+</span><div class="hs-l">Eventos</div></div>
-    <div class="hs-div"></div>
-    <div class="hs-item"><span class="hs-n" data-target="10">0</span><span class="hs-plus">+</span><div class="hs-l">Estados USA</div></div>
-  </div>
-</div>
-
-<!-- BAND -->
-<div class="band"><div class="band-track" id="band"></div></div>
-
-<!-- ═══ ABOUT ═══ -->
-<section id="about">
-  <div class="about-layout">
-    <div class="about-visual rv-l">
-      <!--
-        FOTO ABOUT: reemplaza con:
-        <img src="images/hero/dj-franz-about.jpg" alt="DJ Franz" class="about-img">
-      -->
-      <div class="about-img-ph">
-        <div class="aph-glow"></div>
-        <span class="aph-icon">🎧</span>
-        <span class="aph-hint">Tu foto aquí</span>
-      </div>
-      <div class="about-badge">
-        <div class="ab-n">20</div>
-        <div class="ab-l">años</div>
+  <!-- MAIN CONTENT -->
+  <div class="hero-body">
+    <div class="hero-left">
+      <p class="hero-loc">Santo Domingo · Ecuador · USA</p>
+      <h1 class="hero-title">
+        <em>DJ</em>
+        <strong>FRANZ</strong>
+      </h1>
+      <p class="hero-claim">Experiencias musicales<br>de otro nivel</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="cta-primary">Reservar</a>
+        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!" target="_blank" class="cta-wa">✆ WhatsApp</a>
       </div>
     </div>
 
-    <div class="about-text rv-r">
-      <p class="sec-tag">01 — Bio</p>
-      <h2 class="sec-title">El mejor DJ<br>de <em>Ecuador</em></h2>
-      <p class="about-p">Con casi <strong>20 años de trayectoria</strong>, ha abierto conciertos a más de 50 artistas internacionales — Maluma, J Balvin, Enrique Iglesias, Carlos Vives, Nicky Jam y muchos más.</p>
-      <p class="about-p">DJ oficial de las <strong>Noches Amarillas de Barcelona S.C.</strong> Actualmente de gira por la Costa Este de Estados Unidos con EmerShows.</p>
-      <p class="about-p">Reconocido por el <strong>Alcalde de Santo Domingo</strong> y la Asamblea Nacional.</p>
-      <div class="about-actions">
-        <a href="#booking" class="btn-main">Reservar ahora</a>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20información%20sobre%20tus%20servicios" target="_blank" class="btn-wa">
-          <span class="wa-icon">✆</span> WhatsApp
-        </a>
+    <div class="hero-right">
+      <!-- Visualizer -->
+      <div class="viz" id="viz"></div>
+      <!-- Countdown -->
+      <div class="hero-cd">
+        <p class="cd-ttl">Próximo show</p>
+        <div class="cd-nums">
+          <div><b id="cd-d">00</b><small>días</small></div>
+          <div><b id="cd-h">00</b><small>hrs</small></div>
+          <div><b id="cd-m">00</b><small>min</small></div>
+          <div><b id="cd-s">00</b><small>seg</small></div>
+        </div>
       </div>
     </div>
+  </div>
+
+  <!-- Bottom stats strip -->
+  <div class="hero-strip">
+    <div class="hst"><span class="hst-n" data-t="20">0</span><span>+</span><small>Años</small></div>
+    <div class="hst-d"></div>
+    <div class="hst"><span class="hst-n" data-t="50">0</span><span>+</span><small>Artistas internacionales</small></div>
+    <div class="hst-d"></div>
+    <div class="hst"><span class="hst-n" data-t="500">0</span><span>+</span><small>Eventos</small></div>
+    <div class="hst-d"></div>
+    <div class="hst"><span class="hst-n" data-t="10">0</span><span>+</span><small>Estados USA</small></div>
   </div>
 </section>
 
-<!-- ARTISTS TICKER -->
-<div class="art-block">
-  <div class="art-lbl">Ha abierto conciertos para</div>
-  <div class="art-row r1" id="ar1"></div>
-  <div class="art-row r2" id="ar2"></div>
-</div>
+<!-- MARQUEE -->
+<div class="mq"><div class="mq-t" id="mq"></div></div>
 
-<!-- ═══ SERVICES ═══ -->
+<!-- ══════ ABOUT ══════ -->
+<section id="about" class="about-sec">
+  <!-- Photo — REEMPLAZA con tu foto:
+    <img src="images/hero/dj-franz-about.jpg" class="about-photo" alt="DJ Franz">
+  -->
+  <div class="about-photo-ph">
+    <div class="app-inner">🎧</div>
+    <div class="app-corner tl"></div>
+    <div class="app-corner br"></div>
+  </div>
+
+  <div class="about-content">
+    <p class="sec-eyebrow">— Quién soy</p>
+    <h2 class="about-h">El DJ<br>que mueve<br><em>Ecuador</em></h2>
+    <div class="about-body">
+      <p>Casi <strong>20 años</strong> de trayectoria. Reconocido por abrir conciertos a más de <strong>50 artistas internacionales</strong> — Maluma, J Balvin, Enrique Iglesias, Carlos Vives, Nicky Jam y muchos más.</p>
+      <p>DJ oficial de las <strong>Noches Amarillas de Barcelona S.C.</strong> De gira por la Costa Este de USA con EmerShows. Reconocido por el <strong>Alcalde de Santo Domingo</strong> y la Asamblea Nacional.</p>
+    </div>
+    <div class="about-btns">
+      <a href="#contact" class="cta-primary">Reservar</a>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20más%20información" target="_blank" class="cta-wa">✆ WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Floating artist ticker -->
+  <div class="about-ticker">
+    <div class="at-inner" id="at"></div>
+  </div>
+</section>
+
+<!-- ══════ SERVICES — HORIZONTAL FILMSTRIP ══════ -->
 <section id="services">
-  <div class="sec-head rv">
-    <p class="sec-tag">02 — Servicios</p>
-    <h2 class="sec-title">Lo que hago</h2>
+  <div class="svc-header">
+    <p class="sec-eyebrow">— Lo que hago</p>
+    <h2 class="svc-h">Servicios</h2>
   </div>
-  <div class="svc-grid">
-    <div class="svc-card rv" style="--c1:#0e0e0e;--c2:#1a1a1a">
-      <div class="svc-bg"></div><div class="svc-icon">💒</div>
-      <div class="svc-info">
-        <div class="svc-num">01</div><div class="svc-name">BODAS</div>
-        <div class="svc-desc">El soundtrack perfecto para el día más especial.</div>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20cotizar%20un%20servicio%20para%20mi%20Boda%20🎊" target="_blank" class="svc-wa">✆ Cotizar</a>
+  <div class="svc-strip" id="svcStrip">
+    <div class="svc-slide" data-msg="Hola DJ Franz! quiero cotizar mi Boda 💍">
+      <!--<img src="images/services/bodas.jpg" alt="Bodas">-->
+      <div class="svc-img-ph" style="--g1:#1a1000;--g2:#2a1c00"><span>💒</span></div>
+      <div class="svc-overlay">
+        <div class="svc-num">01</div>
+        <h3>Bodas</h3>
+        <p>El soundtrack perfecto para el día más especial.</p>
+        <a href="#" class="svc-wa-btn">✆ Cotizar</a>
       </div>
     </div>
-    <div class="svc-card rv" style="--c1:#0c0c0c;--c2:#181818">
-      <div class="svc-bg"></div><div class="svc-icon">👑</div>
-      <div class="svc-info">
-        <div class="svc-num">02</div><div class="svc-name">QUINCEAÑERAS</div>
-        <div class="svc-desc">Una noche mágica merece la mejor música.</div>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20cotizar%20una%20Quinceañera%20👑" target="_blank" class="svc-wa">✆ Cotizar</a>
+    <div class="svc-slide" data-msg="Hola DJ Franz! quiero cotizar una Quinceañera 👑">
+      <div class="svc-img-ph" style="--g1:#0a001a;--g2:#160028"><span>👑</span></div>
+      <div class="svc-overlay">
+        <div class="svc-num">02</div>
+        <h3>Quinceañeras</h3>
+        <p>Una noche mágica merece la mejor música.</p>
+        <a href="#" class="svc-wa-btn">✆ Cotizar</a>
       </div>
     </div>
-    <div class="svc-card rv" style="--c1:#111111;--c2:#1c1c1c">
-      <div class="svc-bg"></div><div class="svc-icon">🎉</div>
-      <div class="svc-info">
-        <div class="svc-num">03</div><div class="svc-name">EVENTOS PRIVADOS</div>
-        <div class="svc-desc">Corporativos, aniversarios y fiestas VIP.</div>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20cotizar%20un%20Evento%20Privado%20🎉" target="_blank" class="svc-wa">✆ Cotizar</a>
+    <div class="svc-slide" data-msg="Hola DJ Franz! quiero cotizar un Evento Privado 🎉">
+      <div class="svc-img-ph" style="--g1:#001a10;--g2:#002a18"><span>🎉</span></div>
+      <div class="svc-overlay">
+        <div class="svc-num">03</div>
+        <h3>Eventos Privados</h3>
+        <p>Corporativos, VIP y aniversarios personalizados.</p>
+        <a href="#" class="svc-wa-btn">✆ Cotizar</a>
       </div>
     </div>
-    <div class="svc-card rv" style="--c1:#0e0e0e;--c2:#1a1a1a">
-      <div class="svc-bg"></div><div class="svc-icon">🎧</div>
-      <div class="svc-info">
-        <div class="svc-num">04</div><div class="svc-name">DISCOTECAS</div>
-        <div class="svc-desc">Residencias y shows de alto impacto.</div>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20información%20sobre%20Shows%20en%20Discotecas%20🎧" target="_blank" class="svc-wa">✆ Cotizar</a>
+    <div class="svc-slide" data-msg="Hola DJ Franz! quiero info sobre Shows en Discotecas 🎧">
+      <div class="svc-img-ph" style="--g1:#1a0010;--g2:#280018"><span>🎧</span></div>
+      <div class="svc-overlay">
+        <div class="svc-num">04</div>
+        <h3>Discotecas</h3>
+        <p>Residencias y shows de alto impacto.</p>
+        <a href="#" class="svc-wa-btn">✆ Cotizar</a>
       </div>
     </div>
-    <div class="svc-card rv" style="--c1:#0c0c0c;--c2:#181818">
-      <div class="svc-bg"></div><div class="svc-icon">🎤</div>
-      <div class="svc-info">
-        <div class="svc-num">05</div><div class="svc-name">CONCIERTOS OPENING</div>
-        <div class="svc-desc">DJ oficial de apertura para artistas internacionales.</div>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20información%20sobre%20Conciertos%20Opening%20🎤" target="_blank" class="svc-wa">✆ Cotizar</a>
+    <div class="svc-slide" data-msg="Hola DJ Franz! quiero info sobre Conciertos Opening 🎤">
+      <div class="svc-img-ph" style="--g1:#001018;--g2:#001a28"><span>🎤</span></div>
+      <div class="svc-overlay">
+        <div class="svc-num">05</div>
+        <h3>Conciertos Opening</h3>
+        <p>DJ oficial de apertura para artistas internacionales.</p>
+        <a href="#" class="svc-wa-btn">✆ Cotizar</a>
       </div>
     </div>
-    <div class="svc-card rv" style="--c1:#111111;--c2:#1c1c1c">
-      <div class="svc-bg"></div><div class="svc-icon">🌴</div>
-      <div class="svc-info">
-        <div class="svc-num">06</div><div class="svc-name">POOL PARTIES</div>
-        <div class="svc-desc">Energía y ritmo premium al aire libre.</div>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20cotizar%20una%20Pool%20Party%20🌴" target="_blank" class="svc-wa">✆ Cotizar</a>
+    <div class="svc-slide" data-msg="Hola DJ Franz! quiero cotizar una Pool Party 🌴">
+      <div class="svc-img-ph" style="--g1:#001a18;--g2:#002820"><span>🌴</span></div>
+      <div class="svc-overlay">
+        <div class="svc-num">06</div>
+        <h3>Pool Parties</h3>
+        <p>Energía y ritmo premium al aire libre.</p>
+        <a href="#" class="svc-wa-btn">✆ Cotizar</a>
       </div>
     </div>
   </div>
+  <div class="svc-scroll-hint">← desliza →</div>
 </section>
 
-<!-- ═══ FLASH MEMORY ═══ -->
-<div id="flash">
-  <div class="flash-inner">
-    <div class="flash-left rv-l">
-      <div class="flash-wm">64</div>
-      <div class="flash-content">
-        <p class="sec-tag">Producto</p>
-        <h2 class="flash-h">FLASH<br>MEMORY</h2>
-        <p class="flash-sub">DJ Franz Edition — 64GB · $25</p>
-        <ul class="flash-feats">
-          <li>64 GB de música 100% personalizada</li>
-          <li>Audio y Video alta calidad</li>
-          <li>Todos los géneros musicales</li>
-          <li>Envío a todo Ecuador incluido</li>
-        </ul>
-      </div>
+<!-- ══════ FLASH MEMORY ══════ -->
+<section id="flash">
+  <div class="flash-layout">
+    <div class="flash-info">
+      <p class="sec-eyebrow">— Producto</p>
+      <h2 class="flash-h">Flash<br>Memory</h2>
+      <p class="flash-price">$25 <small>envío incluido</small></p>
+      <ul class="flash-list">
+        <li>64 GB de música 100% personalizada</li>
+        <li>Audio y Video alta calidad</li>
+        <li>Todos los géneros: reggaeton, salsa, cumbia, pop, rock</li>
+        <li>Envío a todo Ecuador</li>
+      </ul>
     </div>
-    <div class="flash-right rv-r">
-      <div class="flash-form-wrap">
-        <p class="ff-title">Personaliza tu pedido</p>
-        <form id="flashForm">
-          <div class="ff-group"><label>Tu nombre</label><input type="text" id="ff-name" placeholder="¿Cómo te llamas?" required></div>
-          <div class="ff-group"><label>Ciudad de entrega</label><input type="text" id="ff-city" placeholder="¿A qué ciudad enviamos?" required></div>
-          <div class="ff-group">
-            <label>Géneros favoritos</label>
-            <div class="ff-checks">
-              <label class="ff-check"><input type="checkbox" value="Reggaeton"><span>Reggaeton</span></label>
-              <label class="ff-check"><input type="checkbox" value="Salsa"><span>Salsa</span></label>
-              <label class="ff-check"><input type="checkbox" value="Cumbia"><span>Cumbia</span></label>
-              <label class="ff-check"><input type="checkbox" value="Merengue"><span>Merengue</span></label>
-              <label class="ff-check"><input type="checkbox" value="Pop"><span>Pop</span></label>
-              <label class="ff-check"><input type="checkbox" value="Rock"><span>Rock</span></label>
-              <label class="ff-check"><input type="checkbox" value="Electrónica"><span>Electrónica</span></label>
-              <label class="ff-check"><input type="checkbox" value="Bachata"><span>Bachata</span></label>
-            </div>
+
+    <div class="flash-form-box">
+      <p class="ff-title">Personaliza tu pedido</p>
+      <form id="fForm">
+        <div class="ff-f"><label>Nombre</label><input id="fn" type="text" placeholder="Tu nombre" required></div>
+        <div class="ff-f"><label>Ciudad de entrega</label><input id="fc" type="text" placeholder="¿Dónde te enviamos?" required></div>
+        <div class="ff-f">
+          <label>Géneros favoritos</label>
+          <div class="ff-cks">
+            <label><input type="checkbox" value="Reggaeton"><span>Reggaeton</span></label>
+            <label><input type="checkbox" value="Salsa"><span>Salsa</span></label>
+            <label><input type="checkbox" value="Cumbia"><span>Cumbia</span></label>
+            <label><input type="checkbox" value="Merengue"><span>Merengue</span></label>
+            <label><input type="checkbox" value="Pop"><span>Pop</span></label>
+            <label><input type="checkbox" value="Rock"><span>Rock</span></label>
+            <label><input type="checkbox" value="Electrónica"><span>Electrónica</span></label>
+            <label><input type="checkbox" value="Bachata"><span>Bachata</span></label>
           </div>
-          <div class="ff-group"><label>Artistas favoritos</label><input type="text" id="ff-artists" placeholder="Ej: Maluma, Daddy Yankee..."></div>
-          <div class="ff-group"><label>Nota adicional</label><input type="text" id="ff-note" placeholder="Algo más que quieras incluir"></div>
-          <button type="submit" class="btn-wa btn-wa-lg">✆ Enviar pedido por WhatsApp</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ EVENTS ═══ -->
-<section id="events">
-  <div class="sec-head rv">
-    <p class="sec-tag">03 — Agenda</p>
-    <h2 class="sec-title">Próximos Eventos</h2>
-  </div>
-  <div class="ev-list">
-    <div class="ev-item rv">
-      <div class="ev-date"><span class="ev-d">14</span><span class="ev-m">JUN</span></div>
-      <div class="ev-info"><div class="ev-name">Noche Amarilla — Barcelona S.C.</div><div class="ev-place">Estadio Monumental · Guayaquil</div></div>
-      <span class="ev-tag">Show</span>
-      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20info%20sobre%20Noche%20Amarilla" target="_blank" class="ev-btn">✆ Info</a>
-    </div>
-    <div class="ev-item rv">
-      <div class="ev-date"><span class="ev-d">21</span><span class="ev-m">JUN</span></div>
-      <div class="ev-info"><div class="ev-name">EmerShows USA Tour</div><div class="ev-place">Danbury · Connecticut, USA</div></div>
-      <span class="ev-tag">Internacional</span>
-      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20info%20sobre%20el%20USA%20Tour" target="_blank" class="ev-btn">✆ Info</a>
-    </div>
-    <div class="ev-item rv">
-      <div class="ev-date"><span class="ev-d">05</span><span class="ev-m">JUL</span></div>
-      <div class="ev-info"><div class="ev-name">Show Discoteca Premium</div><div class="ev-place">Por confirmar · Santo Domingo</div></div>
-      <span class="ev-tag">Clubbing</span>
-      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20info%20sobre%20el%20Show%20en%20Discoteca" target="_blank" class="ev-btn">✆ Info</a>
-    </div>
-    <div class="ev-item rv">
-      <div class="ev-date"><span class="ev-d">19</span><span class="ev-m">JUL</span></div>
-      <div class="ev-info"><div class="ev-name">Concierto Opening — Artista Internacional</div><div class="ev-place">Por confirmar · Ecuador</div></div>
-      <span class="ev-tag">Concierto</span>
-      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20info%20sobre%20el%20Concierto%20Opening" target="_blank" class="ev-btn">✆ Info</a>
+        </div>
+        <div class="ff-f"><label>Artistas favoritos</label><input id="fa" type="text" placeholder="Ej: Maluma, Daddy Yankee..."></div>
+        <button type="submit" class="cta-wa" style="width:100%;justify-content:center;margin-top:8px">✆ Pedir por WhatsApp</button>
+      </form>
     </div>
   </div>
 </section>
 
-<!-- ═══ GALLERY ═══ -->
-<section id="gallery" style="padding:80px 0 0;max-width:none">
-  <div class="gal-head rv">
-    <p class="sec-tag">04 — Galería</p>
-    <h2 class="sec-title">Momentos</h2>
+<!-- ══════ SHOWS / EVENTS ══════ -->
+<section id="shows">
+  <div class="shows-header">
+    <p class="sec-eyebrow">— Agenda</p>
+    <h2 class="shows-h">Shows</h2>
   </div>
-  <div class="gal-grid">
-    <div class="gi gi-tall rv"><div class="gi-ph gp1"><span>🎧</span></div><div class="gi-ov"><span class="gi-lbl">Club Night</span></div><div class="gi-c"></div></div>
-    <div class="gi rv"><div class="gi-ph gp2"><span>💒</span></div><div class="gi-ov"><span class="gi-lbl">Bodas</span></div><div class="gi-c"></div></div>
-    <div class="gi rv"><div class="gi-ph gp3"><span>🎤</span></div><div class="gi-ov"><span class="gi-lbl">Opening</span></div><div class="gi-c"></div></div>
-    <div class="gi gi-wide rv"><div class="gi-ph gp4"><span>🏟️</span></div><div class="gi-ov"><span class="gi-lbl">USA Tour</span></div><div class="gi-c"></div></div>
-    <div class="gi rv"><div class="gi-ph gp5"><span>🌴</span></div><div class="gi-ov"><span class="gi-lbl">Pool Party</span></div><div class="gi-c"></div></div>
-    <div class="gi rv"><div class="gi-ph gp6"><span>👑</span></div><div class="gi-ov"><span class="gi-lbl">Quinceañera</span></div><div class="gi-c"></div></div>
+
+  <div class="shows-list">
+    <div class="show-item">
+      <div class="si-date">
+        <span class="si-d">14</span>
+        <span class="si-m">Jun '25</span>
+      </div>
+      <div class="si-line"></div>
+      <div class="si-info">
+        <h3>Noche Amarilla — Barcelona S.C.</h3>
+        <p>Estadio Monumental · Guayaquil, Ecuador</p>
+      </div>
+      <span class="si-tag">Show</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20info%20sobre%20la%20Noche%20Amarilla" target="_blank" class="si-btn">✆ Info</a>
+    </div>
+    <div class="show-item">
+      <div class="si-date">
+        <span class="si-d">21</span>
+        <span class="si-m">Jun '25</span>
+      </div>
+      <div class="si-line"></div>
+      <div class="si-info">
+        <h3>EmerShows USA Tour</h3>
+        <p>Danbury · Connecticut, USA</p>
+      </div>
+      <span class="si-tag">Internacional</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20info%20sobre%20el%20USA%20Tour" target="_blank" class="si-btn">✆ Info</a>
+    </div>
+    <div class="show-item">
+      <div class="si-date">
+        <span class="si-d">05</span>
+        <span class="si-m">Jul '25</span>
+      </div>
+      <div class="si-line"></div>
+      <div class="si-info">
+        <h3>Show Discoteca Premium</h3>
+        <p>Por confirmar · Santo Domingo</p>
+      </div>
+      <span class="si-tag">Club</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20info%20show%20discoteca" target="_blank" class="si-btn">✆ Info</a>
+    </div>
+    <div class="show-item">
+      <div class="si-date">
+        <span class="si-d">19</span>
+        <span class="si-m">Jul '25</span>
+      </div>
+      <div class="si-line"></div>
+      <div class="si-info">
+        <h3>Concierto Opening — Int'l</h3>
+        <p>Por confirmar · Ecuador</p>
+      </div>
+      <span class="si-tag">Concierto</span>
+      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20info%20concierto%20opening" target="_blank" class="si-btn">✆ Info</a>
+    </div>
   </div>
 </section>
 
-<!-- ═══ BOOKING ═══ -->
-<section id="booking" style="max-width:none;padding:0">
-  <div class="bk-wrap">
-    <div class="bk-left rv-l">
-      <div class="bk-lights"><div class="bkl1"></div><div class="bkl2"></div></div>
-      <div class="bk-left-content">
-        <p class="sec-tag">05 — Reservas</p>
-        <h2 class="bk-title">Reserva<br>tu evento</h2>
-        <p class="bk-sub">Completa el formulario y te respondemos al instante por WhatsApp.</p>
-        <div class="bk-info">
-          <div class="bki"><strong>WhatsApp</strong><span>+593 99 779 0261</span></div>
-          <div class="bki"><strong>Instagram</strong><span>@djfranz_oficial</span></div>
-          <div class="bki"><strong>Base</strong><span>Santo Domingo · Ecuador</span></div>
+<!-- ══════ GALLERY ══════ -->
+<section id="gallery">
+  <div class="gal-hdr">
+    <p class="sec-eyebrow">— Momentos</p>
+  </div>
+  <!-- REEMPLAZA cada .gph con <img src="images/gallery/show-0X.jpg" alt="..."> -->
+  <div class="gal-masonry">
+    <div class="gal-col">
+      <div class="gal-item gi-tall"><div class="gph gph1"><span>🎧</span></div><div class="gi-cap">Club Night</div></div>
+      <div class="gal-item"><div class="gph gph2"><span>🎤</span></div><div class="gi-cap">Opening</div></div>
+    </div>
+    <div class="gal-col">
+      <div class="gal-item"><div class="gph gph3"><span>💒</span></div><div class="gi-cap">Bodas</div></div>
+      <div class="gal-item gi-tall"><div class="gph gph4"><span>🏟️</span></div><div class="gi-cap">USA Tour</div></div>
+    </div>
+    <div class="gal-col">
+      <div class="gal-item"><div class="gph gph5"><span>🌴</span></div><div class="gi-cap">Pool Party</div></div>
+      <div class="gal-item"><div class="gph gph6"><span>👑</span></div><div class="gi-cap">Quinceañera</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CONTACT / BOOKING ══════ -->
+<section id="contact">
+  <div class="contact-layout">
+    <div class="contact-left">
+      <p class="sec-eyebrow">— Reservas</p>
+      <h2 class="contact-h">Hablemos</h2>
+      <p class="contact-sub">Cuéntanos sobre tu evento y te respondemos de inmediato.</p>
+
+      <div class="contact-links">
+        <a href="https://wa.me/593997790261" target="_blank" class="cl-item">
+          <span class="cl-icon">✆</span>
+          <div><strong>WhatsApp</strong><small>+593 99 779 0261</small></div>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="cl-item">
+          <span class="cl-icon">◈</span>
+          <div><strong>Instagram</strong><small>@djfranz_oficial</small></div>
+        </a>
+        <div class="cl-item">
+          <span class="cl-icon">◉</span>
+          <div><strong>Base</strong><small>Santo Domingo · Ecuador</small></div>
         </div>
-        <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!%20quiero%20reservar%20un%20evento" target="_blank" class="btn-wa" style="margin-top:32px;display:inline-flex">✆ Escribir directamente</a>
       </div>
     </div>
-    <div class="bk-right">
-      <form id="bookingForm" class="bk-form">
-        <div class="bk-row">
-          <div class="bk-g"><label>Nombre completo</label><input type="text" id="bk-name" placeholder="Tu nombre" required></div>
-          <div class="bk-g"><label>WhatsApp</label><input type="tel" id="bk-phone" placeholder="+593 XX XXX XXXX" required></div>
+
+    <div class="contact-form">
+      <form id="cForm">
+        <div class="cf-row">
+          <div class="cf-f"><label>Nombre</label><input id="cn" type="text" placeholder="Tu nombre" required></div>
+          <div class="cf-f"><label>WhatsApp</label><input id="cph" type="tel" placeholder="+593 XX XXX XXXX" required></div>
         </div>
-        <div class="bk-row">
-          <div class="bk-g"><label>Tipo de evento</label>
-            <select id="bk-type" required>
+        <div class="cf-row">
+          <div class="cf-f"><label>Tipo de evento</label>
+            <select id="ct" required>
               <option value="" disabled selected>Seleccionar</option>
-              <option>Boda</option><option>Quinceañera</option><option>Evento privado</option>
-              <option>Show en discoteca</option><option>Concierto Opening</option>
-              <option>Pool Party</option><option>After Party</option><option>Corporativo</option>
+              <option>Boda</option><option>Quinceañera</option>
+              <option>Evento privado</option><option>Show en discoteca</option>
+              <option>Concierto Opening</option><option>Pool Party</option>
+              <option>After Party</option><option>Corporativo</option>
             </select>
           </div>
-          <div class="bk-g"><label>Fecha del evento</label><input type="date" id="bk-date" required></div>
+          <div class="cf-f"><label>Fecha</label><input id="cdt" type="date" required></div>
         </div>
-        <div class="bk-row">
-          <div class="bk-g"><label>Ciudad</label><input type="text" id="bk-city" placeholder="Ciudad del evento"></div>
-          <div class="bk-g"><label>Presupuesto</label>
-            <select id="bk-budget">
-              <option value="" disabled selected>Seleccionar</option>
+        <div class="cf-row">
+          <div class="cf-f"><label>Ciudad</label><input id="ccy" type="text" placeholder="Ciudad del evento"></div>
+          <div class="cf-f"><label>Presupuesto</label>
+            <select id="cbg">
+              <option value="" disabled selected>Aprox.</option>
               <option>Menos de $500</option><option>$500 – $1,000</option>
-              <option>$1,000 – $2,500</option><option>$2,500 – $5,000</option><option>Más de $5,000</option>
+              <option>$1,000 – $2,500</option><option>$2,500 – $5,000</option>
+              <option>Más de $5,000</option>
             </select>
           </div>
         </div>
-        <div class="bk-g full"><label>Detalles adicionales</label><textarea id="bk-msg" placeholder="Cuéntanos más sobre tu evento..." rows="3"></textarea></div>
-        <button type="submit" class="btn-wa btn-wa-lg">✆ Enviar por WhatsApp</button>
+        <div class="cf-f"><label>Detalles</label><textarea id="cmsg" placeholder="Cuéntanos sobre tu evento..." rows="3"></textarea></div>
+        <button type="submit" class="cta-wa" style="width:100%;justify-content:center;padding:16px">✆ Enviar por WhatsApp</button>
       </form>
     </div>
   </div>
@@ -380,29 +403,17 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-in">
-    <div class="ft-top">
-      <div class="ft-brand">DJ <span>FRANZ</span></div>
-      <div class="ft-cols">
-        <div>
-          <p class="ft-h">Servicios</p>
-          <a href="#services">Bodas</a><a href="#services">Quinceañeras</a>
-          <a href="#services">Discotecas</a><a href="#services">Conciertos</a>
-          <a href="#flash">Flash Memory</a>
-        </div>
-        <div>
-          <p class="ft-h">Contacto</p>
-          <a href="https://wa.me/593997790261" target="_blank">WhatsApp</a>
-          <a href="https://instagram.com" target="_blank">Instagram</a>
-          <a href="https://facebook.com" target="_blank">Facebook</a>
-          <a href="https://tiktok.com" target="_blank">TikTok</a>
-          <a href="https://youtube.com" target="_blank">YouTube</a>
-        </div>
-      </div>
+  <div class="ft">
+    <div class="ft-l">
+      <span class="ft-brand">DJ FRANZ</span>
+      <span class="ft-copy">© 2025 · Santo Domingo, Ecuador</span>
     </div>
-    <div class="ft-bot">
-      <span>© 2025 DJ Franz — Santo Domingo de los Tsáchilas, Ecuador</span>
-      <a href="https://wa.me/593997790261?text=Hola%20DJ%20Franz!" target="_blank" class="btn-wa ft-wa">✆ WhatsApp</a>
+    <div class="ft-soc">
+      <a href="https://instagram.com" target="_blank">IG</a>
+      <a href="https://facebook.com" target="_blank">FB</a>
+      <a href="https://tiktok.com" target="_blank">TK</a>
+      <a href="https://youtube.com" target="_blank">YT</a>
+      <a href="https://wa.me/593997790261" target="_blank">WA</a>
     </div>
   </div>
 </footer>
