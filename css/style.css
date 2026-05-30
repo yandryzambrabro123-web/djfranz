@@ -341,3 +341,8 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   .pb-songs-grid{grid-template-columns:1fr}
   .svc-slide{flex:0 0 260px;height:380px}
 }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(255,255,255,0.3)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 40px rgba(255,255,255,0.7)); }
+}
