@@ -227,7 +227,7 @@ nav.stuck{padding:12px 52px;background:rgba(6,6,6,.97);border-bottom-color:var(-
 /* GALLERY — horizontal scrollable strip */
 #gallery{padding:80px 0 0}
 .gal-hdr{padding:0 52px;margin-bottom:40px;display:flex;align-items:flex-end;justify-content:space-between}
-.gal-strip{display:flex;gap:3px;overflow-x:auto;padding:0 52px 52px;cursor:grab;user-select:none;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gal-strip{display:flex;gap:3px;overflow:hidden;padding:0 0 52px;cursor:default;user-select:none;scrollbar-width:none}
 .gal-strip::-webkit-scrollbar{display:none}
 .gal-strip.drag{cursor:grabbing}
 .gi{flex:0 0 auto;position:relative;overflow:hidden;cursor:none}
@@ -313,6 +313,30 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:32px 52px}
   .svc-card{flex:0 0 260px;height:380px}
   .gi.tall{width:220px;height:340px}.gi.wide{width:320px;height:240px}.gi.sq{width:240px;height:240px}
 }
+
+/* NAV logo only */
+.nav-logo img{height:52px;width:auto;object-fit:contain;transition:opacity .2s}
+.nav-logo img:hover{opacity:.75}
+
+/* Hero center logo */
+.hero-logo-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:4;pointer-events:none;animation:logoPulse 3s ease-in-out infinite}
+.hero-logo-big{width:clamp(160px,18vw,260px);height:auto;filter:drop-shadow(0 0 40px rgba(255,255,255,.2)) drop-shadow(0 0 80px rgba(255,255,255,.1));opacity:.92}
+@keyframes logoPulse{0%,100%{filter:drop-shadow(0 0 30px rgba(255,255,255,.15)) drop-shadow(0 0 60px rgba(255,255,255,.08));transform:translate(-50%,-50%) scale(1)}50%{filter:drop-shadow(0 0 50px rgba(255,255,255,.3)) drop-shadow(0 0 100px rgba(255,255,255,.15));transform:translate(-50%,-50%) scale(1.04)}}
+
+/* Gallery auto-scroll */
+.gal-strip{animation:galScroll 40s linear infinite}
+.gal-strip:hover{animation-play-state:paused}
+@keyframes galScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Service card hover effects enhanced */
+.svc-card{transition:transform .3s ease,box-shadow .3s ease}
+.svc-card:hover{transform:scale(1.03) translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.svc-card img{transition:transform .6s ease,filter .4s,scale .6s}
+.svc-card:hover img{transform:scale(1.08);filter:brightness(.8) saturate(1.2)}
+
+/* Gallery item hover pulse */
+.gi{transition:transform .3s ease}
+.gi:hover{transform:scale(1.02)}
 </style>
 </head>
 <body>
@@ -329,7 +353,6 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:32px 52px}
 <nav id="nav">
   <a href="#" class="nav-logo">
     <img src="logo-djfranz.png" alt="DJ Franz" onerror="this.style.display='none'">
-    <span>DJ FRANZ</span>
   </a>
   <div class="nav-links">
     <a href="#about">Bio</a>
@@ -350,9 +373,12 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:32px 52px}
 
 <!-- HERO -->
 <section id="hero">
-  <img src="images/hero/IMG_0015_JPG.jpeg" alt="DJ Franz en vivo" class="hero-img">
+  <img src="images/hero/IMG_5032_JPG.jpeg" alt="DJ Franz en vivo" class="hero-img">
   <div class="hero-ov"></div>
   <div class="hero-scn"></div>
+  <div class="hero-logo-center">
+    <img src="logo-djfranz.png" alt="DJ Franz Logo" class="hero-logo-big">
+  </div>
   <div class="viz" id="viz"></div>
   <div class="hero-cd">
     <p class="cd-lbl">Próximo show en</p>
@@ -538,6 +564,15 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:32px 52px}
     <span class="gal-hint">← desliza →</span>
   </div>
   <div class="gal-strip" id="galStrip">
+    <div class="gi tall"><img src="images/gallery/IMG_6621_JPG.jpeg" alt="Club Night" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Club Night</span></div></div>
+    <div class="gi wide"><img src="images/gallery/IMG_7445_JPG.jpeg" alt="Show" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Show</span></div></div>
+    <div class="gi sq"><img src="images/gallery/IMG_5018_JPG.jpeg" alt="Opening" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Opening</span></div></div>
+    <div class="gi tall"><img src="images/gallery/IMG_5698_JPG.jpeg" alt="USA Tour" loading="lazy"><div class="gi-ov"><span class="gi-lbl">USA Tour</span></div></div>
+    <div class="gi wide"><img src="images/gallery/DSC00527_jpg.jpeg" alt="Pool Party" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Pool Party</span></div></div>
+    <div class="gi sq"><img src="images/gallery/IMG_0760_JPG.jpeg" alt="Quinceañera" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Quinceañera</span></div></div>
+    <div class="gi tall"><img src="images/gallery/IMG_5697_JPG.jpeg" alt="Concierto" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Concierto</span></div></div>
+    <div class="gi wide"><img src="images/gallery/IMG_0757_JPG.jpeg" alt="Evento" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Evento</span></div></div>
+    <!-- duplicate for infinite loop -->
     <div class="gi tall"><img src="images/gallery/IMG_6621_JPG.jpeg" alt="Club Night" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Club Night</span></div></div>
     <div class="gi wide"><img src="images/gallery/IMG_7445_JPG.jpeg" alt="Show" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Show</span></div></div>
     <div class="gi sq"><img src="images/gallery/IMG_5018_JPG.jpeg" alt="Opening" loading="lazy"><div class="gi-ov"><span class="gi-lbl">Opening</span></div></div>
