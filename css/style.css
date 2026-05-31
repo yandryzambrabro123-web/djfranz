@@ -542,3 +542,11 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
 @media(max-width:768px){
   .hero-logo-float{display:none!important}
 }
+
+@media(max-width:768px){
+  .hero-logo-float{display:block!important;width:180px!important;height:auto!important;top:25%!important;right:50%!important;transform:translate(50%,-50%)!important}
+}
+
+@media(max-width:768px){
+  .hero-logo-float{display:block!important;width:180px!important;height:auto!important;top:25%!important;right:50%!important;transform:translate(50%,-50%)!important}
+}
