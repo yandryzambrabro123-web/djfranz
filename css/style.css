@@ -563,3 +563,9 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   #about.about-sec .about-content{padding:2rem!important;width:100%!important;box-sizing:border-box!important}
   #about.about-sec .about-body p{font-size:14px!important}
 }
+
+@media(max-width:768px){
+  .about-content.rv-r{width:100%!important;margin-left:0!important;padding:1.5rem!important;box-sizing:border-box!important;position:relative!important;z-index:3!important}
+  .about-h{font-size:11vw!important;line-height:1.1!important}
+  #about.about-sec .about-content{margin-top:50vh!important}
+}
