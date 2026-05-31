@@ -593,3 +593,7 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   #about .about-btns{justify-content:center!important;width:100%!important}
   #about .ab-stats{width:100%!important}
 }
+
+@media(max-width:900px){
+  #about.about-sec .about-content{left:0!important;right:0!important;width:100%!important;max-width:100%!important;min-width:0!important;padding:24px 20px!important;box-sizing:border-box!important}
+}
