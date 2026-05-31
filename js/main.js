@@ -268,3 +268,28 @@ document.getElementById('cForm').addEventListener('submit',function(e){
   window.open(waLink(msg),'_blank');
   this.reset();toast('✓ Abriendo WhatsApp...');
 });
+
+// Drag scroll para svc-strip y gal-track
+['svcStrip','gal-track'].forEach(id=>{
+  const el=document.getElementById(id)||document.querySelector('.gal-track');
+  if(!el)return;
+  let isDown=false,startX,scrollLeft;
+  el.addEventListener('mousedown',e=>{isDown=true;el.style.animationPlayState='paused';startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;});
+  el.addEventListener('mouseleave',()=>{isDown=false;el.style.animationPlayState='running';});
+  el.addEventListener('mouseup',()=>{isDown=false;el.style.animationPlayState='running';});
+  el.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*2;});
+  el.addEventListener('touchstart',e=>{startX=e.touches[0].pageX-el.offsetLeft;scrollLeft=el.scrollLeft;el.style.animationPlayState='paused';},{passive:true});
+  el.addEventListener('touchend',()=>el.style.animationPlayState='running');
+  el.addEventListener('touchmove',e=>{const x=e.touches[0].pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*2;},{passive:true});
+});
+
+// Drag manual galería y servicios
+document.querySelectorAll('.gal-track, .svc-strip').forEach(el=>{
+  el.style.animation='none';
+  let isDown=false,startX,scrollLeft;
+  el.addEventListener('mousedown',e=>{isDown=true;el.classList.add('drag');startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;});
+  window.addEventListener('mouseup',()=>{isDown=false;el.classList.remove('drag');});
+  el.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*2;});
+  el.addEventListener('touchstart',e=>{startX=e.touches[0].pageX;scrollLeft=el.scrollLeft;},{passive:true});
+  el.addEventListener('touchmove',e=>{el.scrollLeft=scrollLeft-(e.touches[0].pageX-startX);},{passive:true});
+});
