@@ -569,3 +569,18 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   .about-h{font-size:11vw!important;line-height:1.1!important}
   #about.about-sec .about-content{margin-top:50vh!important}
 }
+
+@media(max-width:900px){
+  .about-content{
+    width:100%!important;
+    padding:24px!important;
+    margin-top:45vh!important;
+    margin-left:0!important;
+    box-sizing:border-box!important;
+    text-align:left!important;
+  }
+  .about-h{font-size:11vw!important;line-height:1.05!important;width:100%!important}
+  .about-body p{font-size:15px!important;line-height:1.6!important}
+  .ab-stats{width:100%!important}
+  .about-btns{width:100%!important}
+}
