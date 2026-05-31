@@ -531,3 +531,15 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   #services .svc-strip{flex-direction:column;animation:none}
   #services .svc-slide{width:100%;height:280px}
 }
+
+@media(max-width:768px){
+  img[style*="logoFloat"]{display:none!important}
+  #hero img.about-photo{display:none}
+  #about.about-sec .about-photo{width:100%!important;height:55vw!important;position:relative!important;top:auto!important;left:auto!important}
+  #about.about-sec .about-content{width:100%!important;padding:2rem 1.5rem!important;margin-left:0!important}
+  #about.about-sec .about-overlay{display:none!important}
+}
+
+@media(max-width:768px){
+  .hero-logo-float{display:none!important}
+}
