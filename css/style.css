@@ -523,7 +523,6 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
 #services .svc-slide p{display:none}
 
 @media(max-width:768px){
-  #hero .hero-logo-float{display:none}
   #about.about-sec{flex-direction:column;min-height:auto}
   #about.about-sec .about-photo{position:relative;width:100%;height:60vw;object-fit:cover}
   #about.about-sec .about-overlay{display:none}
