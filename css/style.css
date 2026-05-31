@@ -584,3 +584,12 @@ footer{background:var(--bg);border-top:1px solid var(--rule);padding:30px 52px}
   .ab-stats{width:100%!important}
   .about-btns{width:100%!important}
 }
+
+@media(max-width:900px){
+  #about .about-content{text-align:center!important;align-items:center!important;width:100%!important;padding:24px!important;margin-left:0!important;box-sizing:border-box!important}
+  #about .about-h{text-align:center!important;width:100%!important;font-size:13vw!important}
+  #about .eyebrow{text-align:center!important;justify-content:center!important}
+  #about .about-body{text-align:center!important;width:100%!important}
+  #about .about-btns{justify-content:center!important;width:100%!important}
+  #about .ab-stats{width:100%!important}
+}
