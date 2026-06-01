@@ -566,3 +566,7 @@ EOF}cat >> css/style.css << 'EOF'
 @media(max-width:900px){
   #about.about-sec{justify-content:flex-end!important}
 }
+
+@media(max-width:900px){
+  .hero-logo-float{display:none!important}
+}
