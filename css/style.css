@@ -546,54 +546,18 @@ EOF}cat >> css/style.css << 'EOF'
   #about .eyebrow{justify-content:center!important;text-align:center!important}
   #about .about-body{width:100%!important;text-align:left!important;border-left:none!important;padding-left:0!important}
   #about .about-body p{font-size:15px!important;line-height:1.6!important}
-  #about .ab-stats{width:100%!important}
-  #about .about-btns{justify-content:center!important;width:100%!important}
-}
 
 @media(max-width:900px){
-  #about.about-sec{min-height:100vh!important;position:relative!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
-  #about .about-photo{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center top!important}
-  #about .about-overlay{display:block!important;position:absolute!important;inset:0!important;background:linear-gradient(to top,rgba(6,6,6,0.95) 50%,rgba(6,6,6,0.2) 100%)!important}
-  #about .about-content{position:relative!important;z-index:3!important;width:100%!important;max-width:100%!important;padding:40px 20px!important;box-sizing:border-box!important;margin:0!important;text-align:center!important;align-items:center!important}
-  #about .about-h{font-size:13vw!important;text-align:center!important;width:100%!important;line-height:1.05!important}
+  html,body{overflow-x:hidden!important;width:100%!important}
+  #hero-logo{display:none!important}
+  #about.about-sec{position:relative!important;min-height:100vh!important;display:flex!important;flex-direction:column!important;justify-content:flex-end!important;overflow:hidden!important}
+  #about .about-photo{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center top!important}
+  #about .about-overlay{position:absolute!important;inset:0!important;background:linear-gradient(to top,rgba(6,6,6,1) 40%,transparent 100%)!important}
+  #about .about-content{position:relative!important;z-index:3!important;width:100%!important;padding:24px!important;box-sizing:border-box!important;margin:0!important;text-align:center!important}
+  #about .about-h{font-size:12vw!important;text-align:center!important;width:100%!important;line-height:1.05!important}
   #about .eyebrow{justify-content:center!important;text-align:center!important}
-  #about .about-body{width:100%!important;text-align:left!important;border-left:none!important;padding-left:0!important}
-  #about .about-body p{font-size:15px!important;line-height:1.6!important}
+  #about .about-body{width:100%!important;border-left:none!important;padding-left:0!important}
+  #about .about-body p{font-size:14px!important;line-height:1.6!important;text-align:left!important}
   #about .ab-stats{width:100%!important}
-  #about .about-btns{justify-content:center!important;width:100%!important}
-}
-
-@media(max-width:900px){
-  #about.about-sec{justify-content:flex-end!important}
-}
-
-@media(max-width:900px){
-  .hero-logo-float{display:none!important}
-}
-
-@media(max-width:900px){
-  #hero-logo{display:none!important}
-  #about .about-content{text-align:center!important;width:100%!important;padding:20px!important;box-sizing:border-box!important;margin:0!important}
-  #about .about-h{font-size:12vw!important;text-align:center!important;white-space:normal!important;word-break:break-word!important;width:100%!important}
-}
-
-@media(max-width:900px){
-  #hero-logo{display:none!important}
-}
-
-@media(max-width:900px){
-  html, body{overflow-x:hidden!important;width:100%!important}
-  #hero{width:100%!important;overflow:hidden!important}
-  .hero-body{width:100%!important;box-sizing:border-box!important}
-}
-
-@media(max-width:900px){
-  #about.about-sec{display:flex!important;flex-direction:row!important;align-items:center!important;min-height:100vh!important;overflow:hidden!important}
-  #about .about-photo{position:absolute!important;right:-10%!important;top:0!important;width:65%!important;height:100%!important;object-fit:cover!important;object-position:left top!important;left:auto!important}
-  #about .about-overlay{background:linear-gradient(to right,rgba(6,6,6,1) 40%,rgba(6,6,6,0) 80%)!important}
-  #about .about-content{width:55%!important;padding:20px 0 20px 20px!important;margin:0!important;box-sizing:border-box!important;text-align:left!important;align-items:flex-start!important;position:relative!important;z-index:3!important}
-  #about .about-h{font-size:9vw!important;text-align:left!important;line-height:1.05!important}
-  #about .eyebrow{text-align:left!important;justify-content:flex-start!important}
-  #about .ab-stats{width:100%!important}
-  #about .about-body p{font-size:12px!important}
+  #about .about-btns{justify-content:center!important}
 }
