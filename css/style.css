@@ -580,3 +580,9 @@ EOF}cat >> css/style.css << 'EOF'
 @media(max-width:900px){
   #hero-logo{display:none!important}
 }
+
+@media(max-width:900px){
+  html, body{overflow-x:hidden!important;width:100%!important}
+  #hero{width:100%!important;overflow:hidden!important}
+  .hero-body{width:100%!important;box-sizing:border-box!important}
+}
