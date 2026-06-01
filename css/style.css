@@ -562,3 +562,7 @@ EOF}cat >> css/style.css << 'EOF'
   #about .ab-stats{width:100%!important}
   #about .about-btns{justify-content:center!important;width:100%!important}
 }
+
+@media(max-width:900px){
+  #about.about-sec{justify-content:flex-end!important}
+}
